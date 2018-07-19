@@ -1,4 +1,73 @@
 package models;
 
-public class Advert {
+import javax.persistence.*;
+
+@Entity
+@Table(name= "adverts")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "advert_type")
+public abstract class Advert {
+
+    private int id;
+    private String title;
+    private String description;
+    private User user;
+    private String image;
+
+    public Advert(){}
+
+    public Advert(String title, String description, User user){
+      this.title = title;
+      this.description = description;
+      this.user = user;
+      this.image = null;
+
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Column(name = "title")
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Column(name = "description")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Column(name = "image")
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @Column(name = "user")
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

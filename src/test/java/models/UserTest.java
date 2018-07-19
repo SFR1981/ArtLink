@@ -7,16 +7,23 @@ import static org.junit.Assert.*;
 
 public class UserTest {
 
+
+    User user;
+
     @Before
     public void before(){
+        user = new User ("Dave");
     }
 
     @Test
-    public void getUsername() {
+    public void canGetUsername(){
+        assertEquals("Dave", user.getUsername());
     }
 
     @Test
-    public void setUsername() {
+    public void canSetUsername() {
+        user.setUsername("Terry");
+        assertEquals("Terry", user.getUsername());
     }
 
     @Test
