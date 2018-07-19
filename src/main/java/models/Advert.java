@@ -62,7 +62,8 @@ public abstract class Advert {
         this.image = image;
     }
 
-    @Column(name = "user")
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     public User getUser() {
         return user;
     }
