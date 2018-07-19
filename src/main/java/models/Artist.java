@@ -35,7 +35,7 @@ public class Artist extends Advert {
         this.name = name;
     }
 
-
+    @Column(name = "skill")
     public Skill getSkill() {
         return skill;
     }
@@ -44,6 +44,7 @@ public class Artist extends Advert {
         this.skill = skill;
     }
 
+    @Column(name = "location")
     public String getLocation() {
         return location;
     }
