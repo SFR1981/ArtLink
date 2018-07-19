@@ -29,57 +29,69 @@ public class ArtistTest {
 
     @Test
     public void getSkill() {
+        assertEquals("painter", artist.getSkill().getValue());
     }
 
     @Test
     public void setSkill() {
+        artist.setSkill(Skill.ACTOR);
+        assertEquals("actor", artist.getSkill().getValue());
     }
 
     @Test
     public void getLocation() {
+        assertEquals("Edinburgh", artist.getLocation());
     }
 
     @Test
     public void setLocation() {
+        artist.setLocation("Glasgow");
+        assertEquals("Glasgow", artist.getLocation());
     }
 
-    @Test
-    public void getId() {
-    }
-
-    @Test
-    public void setId() {
-    }
 
     @Test
     public void getTitle() {
+        assertEquals("Amazing paint master", artist.getTitle());
     }
 
     @Test
     public void setTitle() {
+        artist.setTitle("x");
+        assertEquals("x", artist.getTitle());
     }
 
     @Test
     public void getDescription() {
+        assertEquals("If you need a cool design in your weird coffee shop, this is your guy", artist.getDescription());
     }
 
     @Test
     public void setDescription() {
+        artist.setDescription("y");
+        assertEquals("y", artist.getDescription());
     }
 
     @Test
     public void getImage() {
+        assertNull(artist.getImage());
     }
 
     @Test
     public void setImage() {
+        artist.setImage("www.image.com");
+        assertEquals("www.image.com", artist.getImage());
     }
 
     @Test
     public void getUser() {
+        assertEquals("Dave", artist.getUser().getUsername());
     }
 
     @Test
     public void setUser() {
+        User user2 = new User("X");
+        artist.setUser(user2);
+        assertEquals("X", artist.getUser().getUsername());
     }
 }
