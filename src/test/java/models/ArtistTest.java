@@ -7,16 +7,24 @@ import static org.junit.Assert.*;
 
 public class ArtistTest {
 
+    Artist artist;
+    User user;
     @Before
     public void before()  {
+        user = new User ("Dave");
+        artist = new Artist("Amazing paint master","If you need a cool design in your weird coffee shop, this is your guy",user, "Mike", Skill.PAINTER,"Edinburgh");
+
     }
 
     @Test
     public void getName() {
+        assertEquals("Mike", artist.getName());
     }
 
     @Test
     public void setName() {
+        artist.setName("Terry");
+        assertEquals("Terry", artist.getName());
     }
 
     @Test
