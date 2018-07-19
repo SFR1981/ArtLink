@@ -23,6 +23,10 @@ public class Runner {
         DBHelper.save(user);
 
 
+//        DBUser.getItems(user);
+//        DBUser.getArtists(user);
+
+
 
 
     }
