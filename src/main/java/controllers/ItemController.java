@@ -106,6 +106,13 @@ public class ItemController {
             item.setId(Integer.parseInt(req.params(":id")));
             item.setTitle(req.queryParams("title"));
             item.setDescription(req.queryParams("description"));
+            int userId = Integer.parseInt(req.queryParams("user"));
+            User user = DBHelper.find(userId, User.class);
+            item.setUser(user);
+            int categoryValue = Integer.parseInt(req.queryParams("category"));
+
+            Category category = Category.values()[categoryValue];
+            item.setCategory(category);
 
             item.setPrice(req.queryParams("price"));
 
