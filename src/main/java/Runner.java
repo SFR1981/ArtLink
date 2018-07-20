@@ -1,7 +1,10 @@
 import db.DBHelper;
+import db.DBUser;
 import models.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Runner {
 
@@ -30,12 +33,20 @@ public class Runner {
         String x = artist.getImage();
         System.out.println(x);
 
-         if (x == null) {
+        List<Advert> foundAdvert = DBUser.getAdvertsForUser(user);
 
+        List<Category> categoryList = Arrays.asList(Category.CLOTHES, Category.CRAFT, Category.JEWELlERY, Category.MISCELLANEOUS, Category.PAINTING, Category.VINTAGE, Category.PHOTOGRAPHY);
+
+
+        for (Category category : categoryList){
+            System.out.println(category.getValue());
         }
 
+        List<Category> categories = DBHelper.getAll(Category.class);
 
-
-
+        List<Category> categories2 = Arrays.asList(Category.values());
     }
+
+
+
     }
