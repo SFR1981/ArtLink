@@ -56,6 +56,9 @@ public class Runner {
 
 
         Category newCategory = Category.values()[6];
+
+
+        int d = item2.getCategory().ordinal();
     }
 
 
