@@ -27,6 +27,12 @@ public class Runner {
 //        DBUser.getArtists(user);
 
         DBHelper.getAll(Advert.class);
+        String x = artist.getImage();
+        System.out.println(x);
+
+         if (x == null) {
+
+        }
 
 
 

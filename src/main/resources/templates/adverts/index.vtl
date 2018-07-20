@@ -7,15 +7,24 @@
     <table>
         <tr>
             <th>Description</th>
+            <th>image</th>
             <th>Title</th>
-            <th>Title</th>
-            <th>Title</th>
+            <th>User</th>
 
         </tr>
-        #foreach($department in $departments)
+        #foreach($advert in $adverts)
         <tr>
-            <td> <a href="/departments/$department.getId()">$department.getTitle()</a></td>
-            <td><form method="post" action="/departments/$department.getId()/delete">
+            <td> <a href="/adverts/$advert.getId()">$advert.getDescription()</a></td>
+            <td> <a href="/adverts/$advert.getId()">
+                #if ($advert.getImage()) $advert.getImage()
+                #else <p> no image </p>
+                #end
+
+            </a></td>
+            <td> <a href="/adverts/$advert.getId()">$advert.getTitle()</a></td>
+            <td> <a href="/adverts/$advert.getId()">$advert.getUser().getUsername()</a></td>
+
+            <td><form method="post" action="/adverts/$advert.getId()/delete">
                 <input type="submit" value="Delete">
 
 

@@ -15,9 +15,11 @@ public class MainController {
 
         Seeds.seedData();
 
+        AdvertController advertController = new AdvertController();
         ArtistController artistController = new ArtistController();
         ItemController itemController = new ItemController();
         UserController userController = new UserController();
+
 
         VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 

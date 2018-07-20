@@ -14,8 +14,8 @@ import static spark.Spark.get;
 
 public class AdvertController {
 
-    public class EmployeesController {
-        public EmployeesController(){
+
+        public AdvertController(){
             this.setupEndPoints();
 
 
@@ -41,4 +41,4 @@ public class AdvertController {
 
         }
     }
-}
+
