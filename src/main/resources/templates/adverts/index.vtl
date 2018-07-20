@@ -1,0 +1,32 @@
+<p class = "pageHeader"> All adverts </p>
+
+
+
+
+<div>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Title</th>
+            <th>Title</th>
+            <th>Title</th>
+
+        </tr>
+        #foreach($department in $departments)
+        <tr>
+            <td> <a href="/departments/$department.getId()">$department.getTitle()</a></td>
+            <td><form method="post" action="/departments/$department.getId()/delete">
+                <input type="submit" value="Delete">
+
+
+            </form></td>
+            <td>
+                <form action="edit" method="get">
+                    <a href="/departments/$department.getId()/edit" class="button">Update</a>
+                </form>
+            </td>
+
+        </tr>
+        #end
+    </table>
+</div>

@@ -26,6 +26,8 @@ public class Runner {
 //        DBUser.getItems(user);
 //        DBUser.getArtists(user);
 
+        DBHelper.getAll(Advert.class);
+
 
 
 
