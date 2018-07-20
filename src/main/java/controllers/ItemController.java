@@ -86,12 +86,12 @@ public class ItemController {
 
         // edit
         get("/items/:id/edit", (req, res) -> {
-            int engineerId = Integer.parseInt(req.params(":id"));
+            int itemId = Integer.parseInt(req.params(":id"));
 
-            Item item = DBHelper.find(engineerId, Item.class);
+            Item item = DBHelper.find(itemId, Item.class);
 
             Map<String, Object> model = new HashMap();
-            model.put("template", "templates/items/update.vtl");
+            model.put("template", "templates/items/edit.vtl");
 
             model.put("item", item);
 
