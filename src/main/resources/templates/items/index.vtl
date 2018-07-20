@@ -1,0 +1,46 @@
+<p class = "pageHeader"> All items </p>
+
+<a href="/items/new">Post new Item for sale</a>
+
+
+<div>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>image</th>
+            <th>Title</th>
+            <th>User</th>
+            <th>Category</th>
+            <th>Price</th>
+
+        </tr>
+        #foreach($item in $items)
+        <tr>
+            <td> <a href="/items/$item.getId()">$item.getDescription()</a></td>
+            <td> <a href="/items/$item.getId()">
+                #if ($item.getImage()) $item.getImage()
+                #else <p> no image </p>
+                #end
+
+            </a></td>
+            <td> <a href="/items/$item.getId()">$item.getTitle()</a></td>
+            <td> <a href="/items/$item.getId()">$item.getUser().getUsername()</a></td>
+            <td> <a href="/items/$item.getId()">$item.getCategory().getValue()</a></td>
+            <td> <a href="/items/$item.getId()">$item.getPrice()</a></td>
+
+
+            <td><form method="post" action="/itemss/$item.getId()/delete">
+                <input type="submit" value="Delete">
+
+
+            </form></td>
+            <td>
+                <form action="edit" method="get">
+                    <a href="/departments/$department.getId()/edit" class="button">Update</a>
+                </form>
+            </td>
+
+        </tr>
+        #end
+    </table>
+</div>

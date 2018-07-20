@@ -45,6 +45,11 @@ public class Runner {
         List<Category> categories = DBHelper.getAll(Category.class);
 
         List<Category> categories2 = Arrays.asList(Category.values());
+
+
+        System.out.println(Category.PHOTOGRAPHY.ordinal());
+
+        Category madeCategory = Category.values()[1];
     }
 
 

@@ -7,6 +7,7 @@ import models.User;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +37,10 @@ public class ItemController {
         // new
         get("/items/new", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
+            List<Category> categories = Arrays.asList(Category.values());
+            User user = new User("Terry");
+            model.put("user", user);
+            model.put("categories", categories);
             model.put("template", "templates/items/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
@@ -48,6 +53,10 @@ public class ItemController {
             String description = req.queryParams("description");
 
             int userId = Integer.parseInt(req.queryParams("user"));
+            //get ordinal from input
+            int categoryValue = Integer.parseInt(req.queryParams("category"));
+
+           Category category = Category.values()[categoryValue];
             User user = DBHelper.find(userId, User.class);
 
 //            int categoryId = Integer.parseInt(req.queryParams("category"));
