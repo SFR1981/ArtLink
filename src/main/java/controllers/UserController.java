@@ -71,7 +71,7 @@ public class UserController {
             User user = DBHelper.find(userId, User.class);
 
             Map<String, Object> model = new HashMap();
-            model.put("template", "templates/users/update.vtl");
+            model.put("template", "templates/users/edit.vtl");
 
             model.put("user", user);
 
