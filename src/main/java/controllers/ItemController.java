@@ -86,12 +86,16 @@ public class ItemController {
 
         // edit
         get("/items/:id/edit", (req, res) -> {
+
+            int itemId = Integer.parseInt(req.params(":id"));
+
             Map<String, Object> model = new HashMap();
             int id = Integer.parseInt((req.params(":id")));
             Item item = DBHelper.find(id, Item.class);
 
             List<Category> categories = Arrays.asList(Category.values());
             model.put("categories", categories);
+
             model.put("template", "templates/items/edit.vtl");
 
             model.put("item", item);
@@ -107,6 +111,13 @@ public class ItemController {
             item.setId(Integer.parseInt(req.params(":id")));
             item.setTitle(req.queryParams("title"));
             item.setDescription(req.queryParams("description"));
+            int userId = Integer.parseInt(req.queryParams("user"));
+            User user = DBHelper.find(userId, User.class);
+            item.setUser(user);
+            int categoryValue = Integer.parseInt(req.queryParams("category"));
+
+            Category category = Category.values()[categoryValue];
+            item.setCategory(category);
 
             item.setPrice(req.queryParams("price"));
 
