@@ -23,6 +23,9 @@ public class ItemController {
 
 
     private void setupEndpoints() {
+
+        User terry = new User("terry");
+        DBHelper.save(terry);
         // index
         get("/items", (req, res) -> {
             Map<String, Object> model = new HashMap();
@@ -38,9 +41,7 @@ public class ItemController {
         get("/items/new", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
             List<Category> categories = Arrays.asList(Category.values());
-            User user = new User("Terry");
-            DBHelper.save(user);
-            model.put("user", user);
+            model.put("user", terry);
             model.put("categories", categories);
             model.put("template", "templates/items/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
@@ -53,6 +54,8 @@ public class ItemController {
 
             String description = req.queryParams("description");
 
+            String image = req.queryParams("image");
+
             int userId = Integer.parseInt(req.queryParams("user"));
             //get ordinal from input
             int categoryValue = Integer.parseInt(req.queryParams("category"));
@@ -63,6 +66,7 @@ public class ItemController {
 
             String price = req.queryParams("price");
             Item item = new Item(title, description, user, category, price);
+            item.setImage(image);
 
             DBHelper.save(item);
 
@@ -95,6 +99,7 @@ public class ItemController {
 
             List<Category> categories = Arrays.asList(Category.values());
             model.put("categories", categories);
+            model.put("user", terry);
 
             model.put("template", "templates/items/edit.vtl");
 
@@ -106,14 +111,16 @@ public class ItemController {
 
         //update
         post("/items/:id", (req, res) -> {
-            Item item = new Item();
+            int id = Integer.parseInt(req.params(":id"));
+            Item item = DBHelper.find(id, Item.class);
 
-            item.setId(Integer.parseInt(req.params(":id")));
+
             item.setTitle(req.queryParams("title"));
             item.setDescription(req.queryParams("description"));
             int userId = Integer.parseInt(req.queryParams("user"));
             User user = DBHelper.find(userId, User.class);
             item.setUser(user);
+            System.out.println(req.queryParams("category"));
             int categoryValue = Integer.parseInt(req.queryParams("category"));
 
             Category category = Category.values()[categoryValue];
