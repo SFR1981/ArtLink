@@ -86,11 +86,16 @@ public class ItemController {
 
         // edit
         get("/items/:id/edit", (req, res) -> {
+
             int itemId = Integer.parseInt(req.params(":id"));
 
-            Item item = DBHelper.find(itemId, Item.class);
-
             Map<String, Object> model = new HashMap();
+            int id = Integer.parseInt((req.params(":id")));
+            Item item = DBHelper.find(id, Item.class);
+
+            List<Category> categories = Arrays.asList(Category.values());
+            model.put("categories", categories);
+
             model.put("template", "templates/items/edit.vtl");
 
             model.put("item", item);

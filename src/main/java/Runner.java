@@ -53,6 +53,9 @@ public class Runner {
         System.out.println(Category.PHOTOGRAPHY.ordinal());
 
         Category madeCategory = Category.values()[1];
+
+
+        Category newCategory = Category.values()[6];
     }
 
 
