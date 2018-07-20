@@ -44,7 +44,9 @@ public class UserController {
         post("/users", (req, res) -> {
 
             String username = req.queryParams("username");
+            String image = req.queryParams("image");
             User user = new User(username);
+            user.setImage(image);
             DBHelper.save(user);
 
             res.redirect("/users");

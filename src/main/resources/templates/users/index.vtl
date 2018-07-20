@@ -8,11 +8,14 @@
     <table>
         <tr>
             <th>Username</th>
+            <th>image</th>
+
         </tr>
         #foreach($user in $users)
         <tr>
 
             <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
+            <td><a href="/users/$user.getId()"><img src="$user.getImage()" alt="image for $user.getUsername()"></a></td>
 
             <td><a href="/users/$user.getId()/edit" class="button center">Edit User</a>
 
