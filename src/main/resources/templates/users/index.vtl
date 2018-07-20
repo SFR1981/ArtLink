@@ -1,0 +1,27 @@
+<p class="pageHeader">All User</p>
+
+<div>
+    <a href="/users/new" class="button center">New User</a>
+</div>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Username</th>
+        </tr>
+        #foreach($user in $users)
+        <tr>
+
+            <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
+
+            <td><a href="/users/$user.getId()/edit" class="button center">Edit User</a>
+
+            <td><form action="/users/$user.getId()/delete" method="POST">
+                <input type="submit" value="Delete User"/>
+            </form></td>
+        </tr>
+        #end
+    </table>
+
+
+</div>
