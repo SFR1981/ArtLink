@@ -83,10 +83,11 @@ public class UserController {
 
         //update
         post("/users/:id", (req, res) -> {
-            User user = new User();
+            int userId = Integer.parseInt(req.params(":id"));
+            User user = DBHelper.find(userId, User.class);
 
-            user.setId(Integer.parseInt(req.params(":id")));
             user.setUsername(req.queryParams("username"));
+            user.setImage(req.queryParams("image"));
 
             DBHelper.save(user);
             res.redirect("/users");

@@ -18,7 +18,7 @@
         <tr>
             <td> <a href="/items/$item.getId()">$item.getDescription()</a></td>
             <td> <a href="/items/$item.getId()">
-                #if ($item.getImage()) $item.getImage()
+                #if ($item.getImage()) <img src="$item.getImage()" alt="">
                 #else <p> no image </p>
                 #end
 
