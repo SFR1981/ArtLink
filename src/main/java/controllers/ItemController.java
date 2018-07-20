@@ -39,6 +39,7 @@ public class ItemController {
             HashMap<String, Object> model = new HashMap<>();
             List<Category> categories = Arrays.asList(Category.values());
             User user = new User("Terry");
+            DBHelper.save(user);
             model.put("user", user);
             model.put("categories", categories);
             model.put("template", "templates/items/create.vtl");
@@ -57,14 +58,13 @@ public class ItemController {
             int categoryValue = Integer.parseInt(req.queryParams("category"));
 
            Category category = Category.values()[categoryValue];
-            User user = DBHelper.find(userId, User.class);
+           User user = DBHelper.find(userId, User.class);
 
-//            int categoryId = Integer.parseInt(req.queryParams("category"));
-//            Category category = DBHelper.find(categoryId, Category.class);
 
             String price = req.queryParams("price");
+            Item item = new Item(title, description, user, category, price);
 
-//            DBHelper.save(item);
+            DBHelper.save(item);
 
 
             res.redirect("/items");
