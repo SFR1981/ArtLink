@@ -9,14 +9,16 @@
         <tr>
             <td>$user.getUsername()</td>
             <td>
-                #if ($user.getImage()) $user.getImage()
+                #if ($user.getImage()) <img src="$user.getImage()" alt="">
                 #else <p> no image </p>
+                #end
 
             </td>
 
         </tr>
     </table>
-    <a href="/users/¢user.getId/edit">Edit</a>
+
+    <a href="/users/$user.getId()/edit">Edit</a>
     <td><form action="/users/$user.getId()/delete" method="POST">
         <input type="submit" value="Delete User"/>
     </form></td>

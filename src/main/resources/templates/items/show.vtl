@@ -5,6 +5,7 @@
         <tr>
             <th>Title</th>
             <th>Description</th>
+            <th>Image</th>
             <th>User</th>
             <th>Category</th>
             <th>Price</th>
@@ -13,12 +14,12 @@
             <td>$item.getTitle()</td>
             <td>$item.getDescription()</td>
             <td>
-                #if ($item.getImage()) $item.getImage()
+                #if ($item.getImage()) <img src="$item.getImage()" alt="image of $item.getTitle()">
                 #else <p> no image </p>
                 #end
 
             </td>
-            <td>$item.getUser().getName()</td>
+            <td>$item.getUser().getUsername()</td>
             <td>$item.getCategory().getValue()</td>
             <td>$item.getPrice()</td>
         </tr>

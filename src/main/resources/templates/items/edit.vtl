@@ -11,7 +11,7 @@
     <input type="text" id="title" name="title" required value="$item.getTitle()">
 
     <label for="image">Add image url:</label>
-    <input type="text" id="image" name="image" required  #if ($item.getImage()) value = $item.getImage()
+    <input type="text" id="image" name="image"  #if ($item.getImage()) value = $item.getImage()
            #else placeholder="enter image url"
     #end >
 
