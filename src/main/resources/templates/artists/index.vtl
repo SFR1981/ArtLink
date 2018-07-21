@@ -3,6 +3,14 @@
 <a href="/artists/new">Add new artist</a>
 
 
+<ul class="view_ads_by">
+    #foreach ($skill in $skills)
+    <li>
+        <a href="/artists/$skill.ordinal()">$skill</a>
+    </li>
+    #end
+</ul>
+
 <div>
     <table>
         <tr>

@@ -1,6 +1,7 @@
 package controllers;
 
 import db.DBHelper;
+import db.DBItem;
 import models.Category;
 import models.Item;
 import models.User;
@@ -43,7 +44,7 @@ public class ItemController {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
 
-            List<Item> items = DBHelper.getAll(Item.class);
+            List<Item> items = DBItem.getItemsForCategory(Category.PAINTING);
             model.put("items", items);
             List<Category> categories = Arrays.asList(Category.values());
             model.put("categories", categories);
@@ -55,7 +56,7 @@ public class ItemController {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
 
-            List<Item> items = DBHelper.getAll(Item.class);
+            List<Item> items = DBItem.getItemsForCategory(Category.PHOTOGRAPHY);
             model.put("items", items);
             List<Category> categories = Arrays.asList(Category.values());
             model.put("categories", categories);
@@ -68,7 +69,7 @@ public class ItemController {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
 
-            List<Item> items = DBHelper.getAll(Item.class);
+            List<Item> items = DBItem.getItemsForCategory(Category.JEWELlERY);
             model.put("items", items);
             List<Category> categories = Arrays.asList(Category.values());
             model.put("categories", categories);
@@ -80,7 +81,7 @@ public class ItemController {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
 
-            List<Item> items = DBHelper.getAll(Item.class);
+            List<Item> items = DBItem.getItemsForCategory(Category.CLOTHES);
             model.put("items", items);
             List<Category> categories = Arrays.asList(Category.values());
             model.put("categories", categories);
@@ -92,7 +93,7 @@ public class ItemController {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
 
-            List<Item> items = DBHelper.getAll(Item.class);
+            List<Item> items = DBItem.getItemsForCategory(Category.VINTAGE);
             model.put("items", items);
             List<Category> categories = Arrays.asList(Category.values());
             model.put("categories", categories);
@@ -104,7 +105,7 @@ public class ItemController {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
 
-            List<Item> items = DBHelper.getAll(Item.class);
+            List<Item> items = DBItem.getItemsForCategory(Category.CRAFT);
             model.put("items", items);
             List<Category> categories = Arrays.asList(Category.values());
             model.put("categories", categories);
@@ -116,7 +117,7 @@ public class ItemController {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
 
-            List<Item> items = DBHelper.getAll(Item.class);
+            List<Item> items = DBItem.getItemsForCategory(Category.MISCELLANEOUS);
             model.put("items", items);
             List<Category> categories = Arrays.asList(Category.values());
             model.put("categories", categories);

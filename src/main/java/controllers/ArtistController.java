@@ -1,5 +1,6 @@
 package controllers;
 
+import db.DBArtist;
 import db.DBHelper;
 import models.*;
 import spark.ModelAndView;
@@ -35,6 +36,92 @@ public class ArtistController {
 
             List<Artist> artists = DBHelper.getAll(Artist.class);
             model.put("artists", artists);
+            List<Skill> skills = Arrays.asList(Skill.values());
+            model.put("skills", skills);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/artists/0", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/artists/index.vtl");
+
+            List<Artist> artists = DBArtist.getArtistsFor(Skill.PAINTER);
+            model.put("artists", artists);
+            List<Skill> skills = Arrays.asList(Skill.values());
+            model.put("skills", skills);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/artists/1", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/artists/index.vtl");
+
+            List<Artist> artists = DBArtist.getArtistsFor(Skill.PHOTOGRAPHER);
+            model.put("artists", artists);
+            List<Skill> skills = Arrays.asList(Skill.values());
+            model.put("skills", skills);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/artists/2", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/artists/index.vtl");
+
+            List<Artist> artists = DBArtist.getArtistsFor(Skill.JEWELER);
+            model.put("artists", artists);
+            List<Skill> skills = Arrays.asList(Skill.values());
+            model.put("skills", skills);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/artists/3", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/artists/index.vtl");
+
+            List<Artist> artists = DBArtist.getArtistsFor(Skill.ACTOR);
+            model.put("artists", artists);
+            List<Skill> skills = Arrays.asList(Skill.values());
+            model.put("skills", skills);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/artists/4", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/artists/index.vtl");
+
+            List<Artist> artists = DBArtist.getArtistsFor(Skill.TAILOR);
+            model.put("artists", artists);
+            List<Skill> skills = Arrays.asList(Skill.values());
+            model.put("skills", skills);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/artists/5", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/artists/index.vtl");
+
+            List<Artist> artists = DBArtist.getArtistsFor(Skill.DIRECTOR);
+            model.put("artists", artists);
+            List<Skill> skills = Arrays.asList(Skill.values());
+            model.put("skills", skills);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/artists/6", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/artists/index.vtl");
+
+            List<Artist> artists = DBArtist.getArtistsFor(Skill.MISCELLANEOUS);
+            model.put("artists", artists);
+            List<Skill> skills = Arrays.asList(Skill.values());
+            model.put("skills", skills);
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
