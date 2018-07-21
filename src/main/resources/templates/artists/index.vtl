@@ -1,0 +1,49 @@
+<p class = "pageHeader"> All artists </p>
+
+<a href="/items/new">Add new artist</a>
+
+
+<div>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>User</th>
+            <th>Name</th>
+            <th>Skill</th>
+            <th>Location</th>
+
+        </tr>
+        #foreach($artist in $artists)
+        <tr>
+            <td> <a href="/artists/$artist.getId()">$artist.getTitle()</a></td>
+            <td> <a href="/artists/$artist.getId()">$artist.getDescription()</a></td>
+            <td> <a href="/artists/$artist.getId()">
+                #if ($artist.getImage()) <img src="$artist.getImage()" alt="">
+                #else <p> no image </p>
+                #end
+
+            </a></td>
+
+            <td> <a href="/artists/$artist.getId()">$artist.getUser().getUsername()</a></td>
+            <td> <a href="/artists/$artist.getId()">$artist.getName()</a></td>
+            <td> <a href="/artists/$artist.getId()">$artist.getSkill().getValue()</a></td>
+            <td> <a href="/artists/$artist.getId()">$artist.getLocation()</a></td>
+
+
+            <td><form method="post" action="/artists/$artist.getId()/delete">
+                <input type="submit" value="Delete">
+
+
+            </form></td>
+            <td>
+                <form action="edit" method="get">
+                    <a href="/artists/$artist.getId()/edit" class="button">Update</a>
+                </form>
+            </td>
+
+        </tr>
+        #end
+    </table>
+</div>
