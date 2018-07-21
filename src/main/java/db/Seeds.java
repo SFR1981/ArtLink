@@ -32,16 +32,16 @@ public class Seeds {
         Item item5 = new Item("Craft", "Inspired by the Game of Thrones war table pieces. These map markers are cast in solid resin using metal powders, in a process known as cold casting.", user, Category.CRAFT, "30.00");
         DBHelper.save(item5);
 
-        Artist artist1 = new Artist("Painter", "Very talented young painter from Glasgow", user, "Mike", Skill.PAINTER, "Glasgow");
+        Artist artist1 = new Artist("Painter", "Very talented young painter from Glasgow", user, "Mike", Skill.PAINTER, "Glasgow", "email@address");
         DBHelper.save(artist1);
 
-        Artist artist2 = new Artist("Jewellery maker", "Experienced jewellery maker, looking for collaboration.", user, "Hannah", Skill.JEWELER, "Edinburgh");
+        Artist artist2 = new Artist("Jewellery maker", "Experienced jewellery maker, looking for collaboration.", user, "Hannah", Skill.JEWELER, "Edinburgh", "email@address");
         DBHelper.save(artist2);
 
-        Artist artist3 = new Artist("Homemade crafts", "Talented mother of three years old.", user, "Paula", Skill.MISCELLANEOUS, "Edinburgh");
+        Artist artist3 = new Artist("Homemade crafts", "Talented mother of three years old.", user, "Paula", Skill.MISCELLANEOUS, "Edinburgh", "address@email");
         DBHelper.save(artist3);
 
-        Artist artist4 = new Artist("Dressmaker", "Can make any dress you want ", user, "Hamish", Skill.CLOTHES_DESIGNER, "Edinburgh");
+        Artist artist4 = new Artist("Dressmaker", "Can make any dress you want ", user, "Hamish", Skill.CLOTHES_DESIGNER, "Edinburgh", "email@address");
         DBHelper.save(artist4);
 
 
