@@ -7,7 +7,6 @@
     <table>
         <tr>
             <th>Title</th>
-            <th>Description</th>
             <th>Image</th>
             <th>User</th>
             <th>Name</th>
@@ -18,7 +17,6 @@
         #foreach($artist in $artists)
         <tr>
             <td> <a href="/artists/$artist.getId()">$artist.getTitle()</a></td>
-            <td> <a href="/artists/$artist.getId()">$artist.getDescription()</a></td>
             <td> <a href="/artists/$artist.getId()">
                 #if ($artist.getImage()) <img src="$artist.getImage()" alt="">
                 #else <p> no image </p>
