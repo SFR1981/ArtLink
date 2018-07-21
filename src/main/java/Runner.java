@@ -38,6 +38,17 @@ public class Runner {
 
         List<Advert> foundAdvert = DBUser.getAdvertsForUser(user);
 
+
+
+
+
+
+
+
+
+
+
+
         List<Category> categoryList = Arrays.asList(Category.CLOTHES, Category.CRAFT, Category.JEWELlERY, Category.MISCELLANEOUS, Category.PAINTING, Category.VINTAGE, Category.PHOTOGRAPHY);
 
 
