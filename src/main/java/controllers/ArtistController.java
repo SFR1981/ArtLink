@@ -59,6 +59,7 @@ public class ArtistController {
             String image = req.queryParams("image");
 
             int userId = Integer.parseInt(req.queryParams("user"));
+            User user = DBHelper.find(userId, User.class);
             //get ordinal from input
             int skillValue = Integer.parseInt(req.queryParams("skill"));
 
@@ -71,21 +72,18 @@ public class ArtistController {
             //TODO: email
 
 
-            User user = DBHelper.find(userId, User.class);
-
-
             Artist artist = new Artist(title, description, user, name, skill, location);
             artist.setImage(image);
 
             DBHelper.save(artist);
 
 
-            res.redirect("/artist");
+            res.redirect("/artists");
             return null;
         }, new VelocityTemplateEngine());
 
         // show
-        get("/artist/:id", (req, res) -> {
+        get("/artists/:id", (req, res) -> {
 
             Map<String, Object> model = new HashMap();
 
@@ -110,7 +108,7 @@ public class ArtistController {
             model.put("skills", skills);
             model.put("user", terry);
 
-            model.put("template", "templates/artist/edit.vtl");
+            model.put("template", "templates/artists/edit.vtl");
 
             model.put("artist", artist);
 
@@ -119,7 +117,7 @@ public class ArtistController {
         },new VelocityTemplateEngine());
 
         //update
-        post("/artist/:id", (req, res) -> {
+        post("/artists/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
             Artist artist = DBHelper.find(id, Artist.class);
 
@@ -146,7 +144,7 @@ public class ArtistController {
         }, new VelocityTemplateEngine());
 
         //delete
-        post ("/artist/:id/delete", (req, res) -> {
+        post ("/artists/:id/delete", (req, res) -> {
 
             int artistId = Integer.parseInt(req.params(":id"));
 

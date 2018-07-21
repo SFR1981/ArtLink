@@ -30,6 +30,12 @@ public class Runner {
         DBHelper.save(user);
 
 
+
+        Artist artistTest = new Artist("x", "x", user, "x", Skill.ACTOR, "x");
+        artistTest.setImage("test");
+
+        DBHelper.save(artistTest);
+
 //        DBUser.getItems(user);
 //        DBUser.getArtists(user);
 

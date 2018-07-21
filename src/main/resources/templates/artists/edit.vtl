@@ -8,8 +8,8 @@
     <label for="description">Description:</label>
     <input type="text" id="description" name="description" required value="$artist.getDescription()">
 
-    <label for="user">Hi $artist.getUsername()</label>
-    <input id="user" type="hidden" name="user" required value="$artist.getId()" readonly="readonly">
+    <label for="user">Hi $user.getUsername()</label>
+    <input id="user" type="hidden" name="user" required value="$user.getId()" readonly="readonly">
 
     <label for="image">Add image url:</label>
     <input type="text" id="image" name="image"  #if ($artist.getImage()) value = $artist.getImage()
