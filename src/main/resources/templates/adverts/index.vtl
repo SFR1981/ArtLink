@@ -6,7 +6,6 @@
 <div>
     <table>
         <tr>
-            <th>Description</th>
             <th>image</th>
             <th>Title</th>
             <th>User</th>
@@ -14,7 +13,6 @@
         </tr>
         #foreach($advert in $adverts)
         <tr>
-            <td> <a href="/adverts/$advert.getId()">$advert.getDescription()</a></td>
             <td> <a href="/adverts/$advert.getId()">
                 #if ($advert.getImage()) <img src="$advert.getImage()" alt="">
                 #else <p> no image </p>
