@@ -29,7 +29,6 @@
     #foreach ($advert in $adverts)
     <table>
     <tr>
-        <td> <a href="/adverts/$advert.getId()">$advert.getDescription()</a></td>
         <td> <a href="/adverts/$advert.getId()">
             #if ($advert.getImage()) <img src="$advert.getImage()" alt="">
             #else <p> no image </p>
