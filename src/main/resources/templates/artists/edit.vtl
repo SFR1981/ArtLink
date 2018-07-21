@@ -1,0 +1,35 @@
+<h1>Edit Artist</h1>
+
+<form action="/artists/$artist.getId()" method="post">
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required value="$artist.getTitle()">
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" required value="$artist.getDescription()">
+
+    <label for="user">Hi $artist.getUsername()</label>
+    <input id="user" type="hidden" name="user" required value="$artist.getId()" readonly="readonly">
+
+    <label for="image">Add image url:</label>
+    <input type="text" id="image" name="image"  #if ($artist.getImage()) value = $artist.getImage()
+           #else placeholder="enter image url"
+           #end >
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required value="$artist.getName()">
+
+    <label for="skill">Select skill</label>
+    <select name="skill" id="skill">
+        <option value="$artist.getSkill().ordinal()" selected>$artist.getSkill().getValue()</option>
+        #foreach ($skill in $skills)
+        <option value="$skill.ordinal()">$skill.getValue()</option>
+        #end
+    </select>
+
+    <label for="location">Set location:</label>
+    <input type="text" id="location" name="location" value="$artist.getLocation()" required>
+
+
+    <input type="submit" value="Add Artist">
+</form>
