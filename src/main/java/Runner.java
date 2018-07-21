@@ -18,9 +18,9 @@ public class Runner {
         Item item2 = new Item("Amazing Photography", "Y", user2, Category.CLOTHES, "1234");
         DBHelper.save(item);
         DBHelper.save(item2);
-        Artist artist = new Artist("Amazing paint master", "If you need a cool design in your weird coffee shop, this is your guy", user, "Mike", Skill.PAINTER, "Edinburgh");
+        Artist artist = new Artist("Amazing paint master", "If you need a cool design in your weird coffee shop, this is your guy", user, "Mike", Skill.PAINTER, "Edinburgh", "email");
         DBHelper.save(artist);
-        Artist artist2 = new Artist("test", "test", user, "mike",Skill.ACTOR, "place");
+        Artist artist2 = new Artist("test", "test", user, "mike",Skill.ACTOR, "place", "email");
         DBHelper.save(artist2);
         ArrayList adverts = new ArrayList<Advert>();
 
@@ -31,7 +31,7 @@ public class Runner {
 
 
 
-        Artist artistTest = new Artist("x", "x", user, "x", Skill.ACTOR, "x");
+        Artist artistTest = new Artist("x", "x", user, "x", Skill.ACTOR, "x", "x");
         artistTest.setImage("test");
 
         DBHelper.save(artistTest);

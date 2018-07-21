@@ -15,7 +15,7 @@ public class Seeds {
         DBHelper.save(user);
         Item item = new Item("Amazing Photography", "Y", user, Category.CLOTHES, "1234");
         DBHelper.save(item);
-        Artist artist = new Artist("Amazing paint master", "If you need a cool design in your weird coffee shop, this is your guy", user, "Mike", Skill.PAINTER, "Edinburgh");
+        Artist artist = new Artist("Amazing paint master", "If you need a cool design in your weird coffee shop, this is your guy", user, "Mike", Skill.PAINTER, "Edinburgh", "email");
         DBHelper.save(artist);
 
         ArrayList adverts = new ArrayList<Advert>();

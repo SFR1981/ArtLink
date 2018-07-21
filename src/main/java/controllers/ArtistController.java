@@ -69,10 +69,12 @@ public class ArtistController {
 
             String location = req.queryParams("location");
 
+            String contact = req.queryParams("contact");
+
             //TODO: email
 
 
-            Artist artist = new Artist(title, description, user, name, skill, location);
+            Artist artist = new Artist(title, description, user, name, skill, location, contact);
             artist.setImage(image);
 
             DBHelper.save(artist);
@@ -136,6 +138,7 @@ public class ArtistController {
 
             artist.setName(req.queryParams("name"));
             artist.setLocation(req.queryParams("location"));
+            artist.setContact(req.queryParams("contact"));
 
 
             DBHelper.save(artist);

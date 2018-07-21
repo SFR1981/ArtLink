@@ -12,13 +12,15 @@ public class Artist extends Advert {
     private String name;
     private Skill skill;
     private String location;
+    private String contact;
 
 
-    public Artist(String title, String description, User user, String name, Skill skill, String location) {
+    public Artist(String title, String description, User user, String name, Skill skill, String location, String contact) {
         super(title, description, user);
         this.name = name;
         this.skill = skill;
         this.location = location;
+        this.contact = contact;
     }
 
     public Artist(){
@@ -42,6 +44,15 @@ public class Artist extends Advert {
 
     public void setSkill(Skill skill) {
         this.skill = skill;
+    }
+
+    @Column(name = "contact")
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     @Column(name = "location")

@@ -12,7 +12,7 @@ public class ArtistTest {
     @Before
     public void before()  {
         user = new User ("Dave");
-        artist = new Artist("Amazing paint master","If you need a cool design in your weird coffee shop, this is your guy",user, "Mike", Skill.PAINTER,"Edinburgh");
+        artist = new Artist("Amazing paint master","If you need a cool design in your weird coffee shop, this is your guy",user, "Mike", Skill.PAINTER,"Edinburgh", "me@email.com");
 
     }
 
@@ -94,4 +94,17 @@ public class ArtistTest {
         artist.setUser(user2);
         assertEquals("X", artist.getUser().getUsername());
     }
+
+    @Test
+    public void canGetContact() {
+        assertEquals("me@email.com", artist.getContact());
+    }
+
+    @Test
+    public void canSetContact(){
+        artist.setContact("x");
+        assertEquals("x", artist.getContact());
+    }
+
+
 }

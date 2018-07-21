@@ -19,7 +19,7 @@ public class UserTest {
     public void before() {
         user = new User("Dave");
         item = new Item("Amazing Photography", "Y", user, Category.CLOTHES, "1234");
-        artist = new Artist("Amazing paint master", "If you need a cool design in your weird coffee shop, this is your guy", user, "Mike", Skill.PAINTER, "Edinburgh");
+        artist = new Artist("Amazing paint master", "If you need a cool design in your weird coffee shop, this is your guy", user, "Mike", Skill.PAINTER, "Edinburgh","x");
         adverts = new ArrayList<Advert>();
 
         adverts.add(artist);
