@@ -3,6 +3,8 @@ package controllers;
 import db.DBHelper;
 import db.DBUser;
 import models.Advert;
+import models.Artist;
+import models.Item;
 import models.User;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -62,7 +64,41 @@ public class UserController {
 
             int userId = Integer.parseInt(req.params(":id"));
             User user = DBHelper.find(userId, User.class);
-            List<Advert> adverts = DBUser.getAdvertsForUser(user);
+            List<Item> adverts = DBUser.getItemsForUser(user);
+            String url = "adverts";
+            model.put("url", url);
+            model.put("adverts", adverts);
+            model.put("template", "templates/users/show.vtl");
+            model.put("user", user);
+            return new ModelAndView(model, "templates/layout.vtl");
+
+        }, new VelocityTemplateEngine());
+
+        get("/users/:id/items", (req, res) -> {
+
+            Map<String, Object> model = new HashMap();
+
+            int userId = Integer.parseInt(req.params(":id"));
+            User user = DBHelper.find(userId, User.class);
+            List<Item> adverts = DBUser.getItemsForUser(user);
+            String url = "items";
+            model.put("url", url);
+            model.put("adverts", adverts);
+            model.put("template", "templates/users/show.vtl");
+            model.put("user", user);
+            return new ModelAndView(model, "templates/layout.vtl");
+
+        }, new VelocityTemplateEngine());
+
+        get("/users/:id/artists", (req, res) -> {
+
+            Map<String, Object> model = new HashMap();
+
+            int userId = Integer.parseInt(req.params(":id"));
+            User user = DBHelper.find(userId, User.class);
+            List<Artist> adverts = DBUser.getArtistsForUser(user);
+            String url = "artists";
+            model.put("url", url);
             model.put("adverts", adverts);
             model.put("template", "templates/users/show.vtl");
             model.put("user", user);

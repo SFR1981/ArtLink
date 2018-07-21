@@ -1,5 +1,6 @@
 <h2>Users</h2>
 
+
 <div class="container">
     <table>
         <tr>
@@ -23,13 +24,14 @@
         <input type="submit" value="Delete User"/>
     </form></td>
 
-
+    <a href="/users/$user.getId()/items">view this user's item listings</a>
+    <a href="/users/$user.getId()/artists"> view this user's creative connections</a>
     <h2>Adverts</h2>
 
     #foreach ($advert in $adverts)
     <table>
     <tr>
-        <td> <a href="/adverts/$advert.getId()">
+        <td> <a href="/$url/$advert.getId()">
             #if ($advert.getImage()) <img src="$advert.getImage()" alt="">
             #else <p> no image </p>
             #end
