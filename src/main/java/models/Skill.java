@@ -5,7 +5,7 @@ public enum Skill {
     PHOTOGRAPHER("photographer"),
     JEWELER("jeweler"),
     ACTOR("actor"),
-    CLOTHES_DESIGNER("clothes designer"),
+    TAILOR("clothes designer"),
     DIRECTOR("director"),
     MISCELLANEOUS("miscellaneous");
 
