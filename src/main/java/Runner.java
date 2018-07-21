@@ -20,7 +20,8 @@ public class Runner {
         DBHelper.save(item2);
         Artist artist = new Artist("Amazing paint master", "If you need a cool design in your weird coffee shop, this is your guy", user, "Mike", Skill.PAINTER, "Edinburgh");
         DBHelper.save(artist);
-
+        Artist artist2 = new Artist("test", "test", user, "mike",Skill.ACTOR, "place");
+        DBHelper.save(artist2);
         ArrayList adverts = new ArrayList<Advert>();
 
         adverts.add(artist);
@@ -37,6 +38,10 @@ public class Runner {
         System.out.println(x);
 
         List<Advert> foundAdvert = DBUser.getAdvertsForUser(user);
+
+        List<Item> foundItem = DBUser.getItemsForUser(user);
+
+        List<Artist> foundArtist = DBUser.getArtistsForUser(user);
 
 
 
