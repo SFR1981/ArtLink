@@ -48,7 +48,7 @@ public class Seeds {
         Artist artist3 = new Artist("Homemade crafts", "Talented mother of three years old.", user, "Paula", Skill.MISCELLANEOUS, "Edinburgh", "address@email");
         DBHelper.save(artist3);
 
-        Artist artist4 = new Artist("Dressmaker", "Can make any dress you want ", user, "Hamish", Skill.CLOTHES_DESIGNER, "Edinburgh", "email@address");
+        Artist artist4 = new Artist("Dressmaker", "Can make any dress you want ", user, "Hamish", Skill.TAILOR, "Edinburgh", "email@address");
         DBHelper.save(artist4);
 
 
