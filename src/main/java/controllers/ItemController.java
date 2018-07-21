@@ -33,9 +33,105 @@ public class ItemController {
 
             List<Item> items = DBHelper.getAll(Item.class);
             model.put("items", items);
+            List<Category> categories = Arrays.asList(Category.values());
+            model.put("categories", categories);
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
+
+        get("/items/0", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/items/index.vtl");
+
+            List<Item> items = DBHelper.getAll(Item.class);
+            model.put("items", items);
+            List<Category> categories = Arrays.asList(Category.values());
+            model.put("categories", categories);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/items/1", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/items/index.vtl");
+
+            List<Item> items = DBHelper.getAll(Item.class);
+            model.put("items", items);
+            List<Category> categories = Arrays.asList(Category.values());
+            model.put("categories", categories);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+
+        get("/items/2", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/items/index.vtl");
+
+            List<Item> items = DBHelper.getAll(Item.class);
+            model.put("items", items);
+            List<Category> categories = Arrays.asList(Category.values());
+            model.put("categories", categories);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/items/3", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/items/index.vtl");
+
+            List<Item> items = DBHelper.getAll(Item.class);
+            model.put("items", items);
+            List<Category> categories = Arrays.asList(Category.values());
+            model.put("categories", categories);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/items/4", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/items/index.vtl");
+
+            List<Item> items = DBHelper.getAll(Item.class);
+            model.put("items", items);
+            List<Category> categories = Arrays.asList(Category.values());
+            model.put("categories", categories);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/items/5", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/items/index.vtl");
+
+            List<Item> items = DBHelper.getAll(Item.class);
+            model.put("items", items);
+            List<Category> categories = Arrays.asList(Category.values());
+            model.put("categories", categories);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        get("/items/6", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/items/index.vtl");
+
+            List<Item> items = DBHelper.getAll(Item.class);
+            model.put("items", items);
+            List<Category> categories = Arrays.asList(Category.values());
+            model.put("categories", categories);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+
+
+
+
+
+
+
+
 
         // new
         get("/items/new", (req, res) -> {
@@ -76,6 +172,9 @@ public class ItemController {
             res.redirect("/items");
             return null;
         }, new VelocityTemplateEngine());
+
+
+
 
         // show
         get("/items/:id", (req, res) -> {

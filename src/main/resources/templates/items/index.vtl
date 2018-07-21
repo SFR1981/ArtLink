@@ -1,6 +1,19 @@
+
 <p class = "pageHeader"> All items </p>
 
 <a href="/items/new">Post new Item for sale</a>
+
+
+<ul class="view_ads_by">
+#foreach ($category in $categories)
+    <li>
+<a href="/items/$category.ordinal()">$category</a>
+    </li>
+#end
+</ul>
+
+
+
 
 
 <div>
