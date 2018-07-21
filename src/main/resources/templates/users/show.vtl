@@ -22,4 +22,30 @@
     <td><form action="/users/$user.getId()/delete" method="POST">
         <input type="submit" value="Delete User"/>
     </form></td>
+
+
+    <h2>Adverts</h2>
+
+    #foreach ($advert in $adverts)
+    <table>
+    <tr>
+        <td> <a href="/adverts/$advert.getId()">$advert.getDescription()</a></td>
+        <td> <a href="/adverts/$advert.getId()">
+            #if ($advert.getImage()) <img src="$advert.getImage()" alt="">
+            #else <p> no image </p>
+            #end
+
+        </a></td>
+        <td> <a href="/adverts/$advert.getId()">$advert.getTitle()</a></td>
+        <td> <a href="/adverts/$advert.getId()">$advert.getUser().getUsername()</a></td>
+
+    </tr>
+    </table>
+    #end
+
+
+
+
+
+
 </div>
