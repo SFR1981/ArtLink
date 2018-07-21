@@ -1,4 +1,6 @@
+import db.DBArtist;
 import db.DBHelper;
+import db.DBItem;
 import db.DBUser;
 import models.*;
 
@@ -60,6 +62,8 @@ public class Runner {
 
 
 
+
+
         List<Category> categoryList = Arrays.asList(Category.CLOTHES, Category.CRAFT, Category.JEWELlERY, Category.MISCELLANEOUS, Category.PAINTING, Category.VINTAGE, Category.PHOTOGRAPHY);
 
 
@@ -82,6 +86,10 @@ public class Runner {
 
         int d = item2.getCategory().ordinal();
 
+
+        List<Item> foundClothes = DBItem.getItemsForCategory(Category.JEWELlERY);
+
+        List<Artist> foundPainter = DBArtist.getArtistsFor(Skill.PAINTER);
 
     }
 
