@@ -61,6 +61,8 @@ public class ItemController {
             int categoryValue = Integer.parseInt(req.queryParams("category"));
 
            Category category = Category.values()[categoryValue];
+
+
            User user = DBHelper.find(userId, User.class);
 
 
@@ -116,6 +118,7 @@ public class ItemController {
 
 
             item.setTitle(req.queryParams("title"));
+            item.setImage(req.queryParams("image"));
             item.setDescription(req.queryParams("description"));
             int userId = Integer.parseInt(req.queryParams("user"));
             User user = DBHelper.find(userId, User.class);
@@ -137,9 +140,9 @@ public class ItemController {
         //delete
         post ("/items/:id/delete", (req, res) -> {
 
-            int engineerId = Integer.parseInt(req.params(":id"));
+            int itemId = Integer.parseInt(req.params(":id"));
 
-            Item item = DBHelper.find(engineerId, Item.class);
+            Item item = DBHelper.find(itemId, Item.class);
 
             DBHelper.delete(item);
 

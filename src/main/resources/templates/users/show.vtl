@@ -1,12 +1,25 @@
-<h2>Engineers</h2>
+<h2>Users</h2>
 
 <div class="container">
     <table>
         <tr>
             <th>Username</th>
+            <th>image</th>
         </tr>
         <tr>
-            <td>$engineer.getUsername()</td>
+            <td>$user.getUsername()</td>
+            <td>
+                #if ($user.getImage()) <img src="$user.getImage()" alt="">
+                #else <p> no image </p>
+                #end
+
+            </td>
+
         </tr>
     </table>
+
+    <a href="/users/$user.getId()/edit">Edit</a>
+    <td><form action="/users/$user.getId()/delete" method="POST">
+        <input type="submit" value="Delete User"/>
+    </form></td>
 </div>

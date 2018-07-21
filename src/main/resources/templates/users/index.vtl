@@ -15,7 +15,13 @@
         <tr>
 
             <td><a href="/users/$user.getId()">$user.getUsername()</a></td>
-            <td><a href="/users/$user.getId()"><img src="$user.getImage()" alt="image for $user.getUsername()"></a></td>
+            <td><a href="/users/$user.getId()">
+                #if ($user.getImage())
+                <img src="$user.getImage()" alt="image for $user.getUsername()">
+                #else
+                 no image
+                #end
+            </a></td>
 
             <td><a href="/users/$user.getId()/edit" class="button center">Edit User</a>
 
