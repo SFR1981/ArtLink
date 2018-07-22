@@ -37,14 +37,14 @@
     #foreach ($advert in $adverts)
     <table>
     <tr>
-        <td> <a href="/$url/$advert.getId()">
+        <td> <a href="/$url/$thisUser.getId()/$advert.getId()">
             #if ($advert.getImage()) <img src="$advert.getImage()" alt="">
             #else <p> no image </p>
             #end
 
         </a></td>
-        <td> <a href="/$url/$advert.getId()">$advert.getTitle()</a></td>
-        <td> <a href="/$url/$advert.getId()">$advert.getUser().getUsername()</a></td>
+        <td> <a href="/$url/$thisUser.getId()/$advert.getId()">$advert.getTitle()</a></td>
+        <td> <a href="/$url/$thisUser.getId()/$advert.getId()">$advert.getUser().getUsername()</a></td>
 
     </tr>
     </table>

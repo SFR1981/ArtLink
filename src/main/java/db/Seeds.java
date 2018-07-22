@@ -14,7 +14,12 @@ public class Seeds {
         User user = new User("Dave");
         DBHelper.save(user);
         User user2 = new User("ArtBot");
+        user2.setImage("http://localhost:4567/images/artbot.jpeg");
         DBHelper.save(user2);
+        User user3 = new User("Bert the Bear");
+        user3.setImage("http://localhost:4567/images/bearfishriver.jpg");
+        DBHelper.save(user3);
+
 
 
         Item item1 = new Item("Necklace", "Join the trend but make it your own. We're pretty sure you've seen this chain everywhere lately and there's a good reason why. It looks absolutely stunning dressed up or down.", user, Category.JEWELLERY, "20.00");
@@ -44,6 +49,10 @@ public class Seeds {
         item6.setImage("http://localhost:4567/images/moon.png");
         DBHelper.save(item6);
 
+        Item item7 = new Item( "xscrvtb", "sxdcrfvtgbyhnjmkjmhngfrrtyujjhrftgjd", user3, Category.CRAFT, "grsdghydjjdefrbvgntbn");
+        item7.setImage("http://localhost:4567/images/salmon.png");
+        DBHelper.save(item7);
+
         Artist artist1 = new Artist("Painter", "Very talented young painter from Glasgow", user2, "Mike", Skill.PAINTER, "Glasgow", "email@address");
         artist1.setImage("http://localhost:4567/images/logo.jpg");
         DBHelper.save(artist1);
@@ -56,6 +65,10 @@ public class Seeds {
 
         Artist artist4 = new Artist("Dressmaker", "Can make any dress you want ", user, "Hamish", Skill.TAILOR, "Edinburgh", "email@address");
         DBHelper.save(artist4);
+
+        Artist artist5 = new Artist("performance artist", "I take a lot of inspiration from the wild, and am often complemented on my convincing portrayals of large bears", user3, "Bert", Skill.ACTOR, "Edinburgh", "send me a letter or something");
+        artist5.setImage("http://localhost:4567/images/bear.jpg");
+        DBHelper.save(artist5);
 
 
         ArrayList adverts = new ArrayList<Advert>();
