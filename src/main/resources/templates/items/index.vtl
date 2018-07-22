@@ -38,6 +38,8 @@
             <td> <a href="/items/$thisUser.getId()/$item.getId()">$item.getCategory().getValue()</a></td>
             <td> <a href="/items/$thisUser.getId()/$item.getId()">$item.getPrice()</a></td>
 
+            #if ($thisUser.getId() == $item.getUser().getId())
+
 
             <td><form method="post" action="/items/$thisUser.getId()/$item.getId()/delete">
                 <input type="submit" value="Delete">
@@ -49,6 +51,7 @@
                     <a href="/items/$thisUser.getId()/$item.getId()/edit" class="button">Update</a>
                 </form>
             </td>
+            #end
 
         </tr>
         #end

@@ -23,11 +23,15 @@
                 #end
             </a></td>
 
+            #if ($thisUser.getId() == $user.getId())
+
             <td><a href="/users/$thisUser.getId()/$user.getId()/edit" class="button center">Edit User</a>
 
             <td><form action="/users/$thisUser.getId()/$user.getId()/delete" method="POST">
                 <input type="submit" value="Delete User"/>
             </form></td>
+
+            #end
         </tr>
         #end
     </table>

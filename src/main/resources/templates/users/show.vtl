@@ -18,12 +18,13 @@
 
         </tr>
     </table>
-
+#if ($thisUser.getId() == $user.getId())
     <a href="/users/$thisUser.getId()/$user.getId()/edit">Edit</a>
     <td><form action="/users/$thisUser.getId()/$user.getId()/delete" method="POST">
         <input type="submit" value="Delete User"/>
     </form></td>
 
+    #end
     <ul>
         <li>
     <a href="/users/$thisUser.getId()/$user.getId()/items">view this user's item listings</a>

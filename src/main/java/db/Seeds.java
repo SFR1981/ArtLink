@@ -13,12 +13,15 @@ public class Seeds {
         DBHelper.deleteAll(User.class);
         User user = new User("Dave");
         DBHelper.save(user);
+        User user2 = new User("ArtBot");
+        DBHelper.save(user2);
+
 
         Item item1 = new Item("Necklace", "Join the trend but make it your own. We're pretty sure you've seen this chain everywhere lately and there's a good reason why. It looks absolutely stunning dressed up or down.", user, Category.JEWELLERY, "20.00");
         item1.setImage("http://localhost:4567/images/necklace.jpg");
         DBHelper.save(item1);
 
-        Item item2 = new Item("Ring", " We're pretty sure you've seen this chain everywhere lately and there's a good reason why. It looks absolutely stunning dressed up or down.", user, Category.JEWELLERY, "15.89");
+        Item item2 = new Item("Ring", " We're pretty sure you've seen this chain everywhere lately and there's a good reason why. It looks absolutely stunning dressed up or down.", user2, Category.JEWELLERY, "15.89");
         item2.setImage("http://localhost:4567/images/ring.jpg");
         DBHelper.save(item2);
 
@@ -38,7 +41,7 @@ public class Seeds {
         DBHelper.save(item5);
 
 
-        Artist artist1 = new Artist("Painter", "Very talented young painter from Glasgow", user, "Mike", Skill.PAINTER, "Glasgow", "email@address");
+        Artist artist1 = new Artist("Painter", "Very talented young painter from Glasgow", user2, "Mike", Skill.PAINTER, "Glasgow", "email@address");
         artist1.setImage("http://localhost:4567/images/logo.jpg");
         DBHelper.save(artist1);
 

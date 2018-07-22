@@ -38,6 +38,9 @@
             <td> <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getLocation()</a></td>
 
 
+
+            #if ($thisUser.getId() == $artist.getUser().getId())
+
             <td><form method="post" action="/artists/$thisUser.getId()/$artist.getId()/delete">
                 <input type="submit" value="Delete">
 
@@ -48,6 +51,8 @@
                     <a href="/artists/$thisUser.getId()/$artist.getId()/edit" class="button">Update</a>
                 </form>
             </td>
+
+            #end
 
         </tr>
         #end
