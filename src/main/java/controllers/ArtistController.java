@@ -30,6 +30,18 @@ public class ArtistController {
         User terry = new User("terry");
         DBHelper.save(terry);
         // index
+
+        get("/artists/$thisUser.getId()", (req,res)-> {
+            Map<String,Object> model = new HashMap<>();
+            List<User> users = DBHelper.getAll(User.class);
+            model.put("users", users);
+            model.put("template", "templates/landing.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+
+
+
         get("/artists/:x", (req, res) -> {
             Map<String, Object> model = new HashMap();
             int id = Integer.parseInt(req.params(":x"));

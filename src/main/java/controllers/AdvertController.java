@@ -3,6 +3,7 @@ package controllers;
 import db.DBHelper;
 import db.Seeds;
 import models.Advert;
+import models.User;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -25,9 +26,16 @@ public class AdvertController {
 
 
 
+            get("/adverts/$thisUser.getId()", (req,res)-> {
+                Map<String,Object> model = new HashMap<>();
+                List<User> users = DBHelper.getAll(User.class);
+                model.put("users", users);
+                model.put("template", "templates/landing.vtl");
+                return new ModelAndView(model, "templates/layout.vtl");
+            }, new VelocityTemplateEngine());
 
 
-            get("/adverts", (req,res) ->{
+            get("/adverts/:x", (req,res) ->{
                 Map<String, Object> model = new HashMap();
 
 
