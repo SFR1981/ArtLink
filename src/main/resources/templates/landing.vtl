@@ -1,1 +1,11 @@
 <h1> aRtliNk</h1>
+
+
+who are you?
+#foreach ($user in $users)
+<ul>
+    <li>
+<a href="/$user.getId()">$user.getUsername()</a>
+    </li>
+</ul>
+#end
