@@ -40,6 +40,9 @@ public class Seeds {
         item5.setImage("http://localhost:4567/images/craft.jpg");
         DBHelper.save(item5);
 
+        Item item6 = new Item("best moon painting of all time", "i have toiled long and hard over this, i expect nothing less than the full recommended retail price of one million pounds", user2, Category.PAINTING, "1000000");
+        item6.setImage("http://localhost:4567/images/moon.png");
+        DBHelper.save(item6);
 
         Artist artist1 = new Artist("Painter", "Very talented young painter from Glasgow", user2, "Mike", Skill.PAINTER, "Glasgow", "email@address");
         artist1.setImage("http://localhost:4567/images/logo.jpg");
