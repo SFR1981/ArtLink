@@ -49,7 +49,7 @@ public class Seeds {
         item6.setImage("http://localhost:4567/images/moon.png");
         DBHelper.save(item6);
 
-        Item item7 = new Item( "xscrvtb", "sxdcrfvtgbyhnjmkjmhngfrrtyujjhrftgjd", user3, Category.CRAFT, "grsdghydjjdefrbvgntbn");
+        Item item7 = new Item( "incrediblly realistic sculpture I have done of a fish", "so hard to tell if it is somekind of very smelly sculpture or if it was got from a river?", user3, Category.CRAFT, "£4.78/kg");
         item7.setImage("http://localhost:4567/images/salmon.png");
         DBHelper.save(item7);
 

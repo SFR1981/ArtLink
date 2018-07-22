@@ -82,7 +82,7 @@ public class UserController {
             int userId = Integer.parseInt(req.params(":id"));
             User user = DBHelper.find(userId, User.class);
             List<Item> adverts = DBUser.getItemsForUser(user);
-            String url = "adverts";
+            String url = "items";
             model.put("url", url);
             model.put("adverts", adverts);
             model.put("template", "templates/users/show.vtl");
