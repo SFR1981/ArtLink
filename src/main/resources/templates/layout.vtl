@@ -7,12 +7,13 @@
 <body>
 <header>
     <ul>
-        <li><a href="/adverts">All Adverts</a></li>
-        <li><a href="/items">For sale</a></li>
-        <li><a href="/artists">Creative connections</a></li>
-        <li><a href="/users">Users</a></li>
+        <li><a href="/adverts/$thisUser.getId()">All Adverts</a></li>
+        <li><a href="/items/$thisUser.getId()">For sale</a></li>
+        <li><a href="/artists/$thisUser.getId()">Creative connections</a></li>
+        <li><a href="/users/$thisUser.getId()">Users</a></li>
     </ul>
 </header>
+
 <!-- begin inner template-->
 <div class="container">
     #parse( $template )

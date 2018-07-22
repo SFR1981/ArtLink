@@ -41,8 +41,8 @@ public class MainController {
         get("/:id", (req,res)-> {
             Map<String,Object> model = new HashMap<>();
             int id = Integer.parseInt(req.params(":id"));
-            User user = DBHelper.find(id, User.class);
-            model.put("user", user);
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
             model.put("template", "templates/main.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());

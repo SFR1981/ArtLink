@@ -19,17 +19,17 @@
         </tr>
     </table>
 
-    <a href="/users/$user.getId()/edit">Edit</a>
-    <td><form action="/users/$user.getId()/delete" method="POST">
+    <a href="/users/$thisUser.getId()/$user.getId()/edit">Edit</a>
+    <td><form action="/users/$thisUser.getId()/$user.getId()/delete" method="POST">
         <input type="submit" value="Delete User"/>
     </form></td>
 
     <ul>
         <li>
-    <a href="/users/$user.getId()/items">view this user's item listings</a>
+    <a href="/users/$thisUser.getId()/$user.getId()/items">view this user's item listings</a>
         </li>
         <li>
-    <a href="/users/$user.getId()/artists"> view this user's creative connections</a>
+    <a href="/users/$thisUser.getId()/$user.getId()/artists"> view this user's creative connections</a>
         </li></ul>
     <h2>Adverts</h2>
 
@@ -42,8 +42,8 @@
             #end
 
         </a></td>
-        <td> <a href="/adverts/$advert.getId()">$advert.getTitle()</a></td>
-        <td> <a href="/adverts/$advert.getId()">$advert.getUser().getUsername()</a></td>
+        <td> <a href="/$url/$advert.getId()">$advert.getTitle()</a></td>
+        <td> <a href="/$url/$advert.getId()">$advert.getUser().getUsername()</a></td>
 
     </tr>
     </table>

@@ -25,9 +25,12 @@ public class UserController {
 
     private void setupEndpoints() {
         // index
-        get("/users", (req, res) -> {
+        get("/users/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/users/index.vtl");
+            int id = Integer.parseInt(req.params(":id"));
+            User user = DBHelper.find(id, User.class);
+            model.put("thisUser", user);
 
             List<User> users = DBHelper.getAll(User.class);
             model.put("users", users);
@@ -36,7 +39,7 @@ public class UserController {
         }, new VelocityTemplateEngine());
 
         // new
-        get("/users/new", (req, res) -> {
+        get("/users/:x/new", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
             List<User> users = DBHelper.getAll(User.class);
             model.put("users", users);
@@ -45,7 +48,7 @@ public class UserController {
         }, new VelocityTemplateEngine());
 
         // create
-        post("/users", (req, res) -> {
+        post("/users/:x", (req, res) -> {
 
             String username = req.queryParams("username");
             String image = req.queryParams("image");
@@ -58,10 +61,13 @@ public class UserController {
         }, new VelocityTemplateEngine());
 
         // show
-        get("/users/:id", (req, res) -> {
+        get("/users/:x/:id", (req, res) -> {
 
             Map<String, Object> model = new HashMap();
 
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
             int userId = Integer.parseInt(req.params(":id"));
             User user = DBHelper.find(userId, User.class);
             List<Item> adverts = DBUser.getItemsForUser(user);
@@ -74,10 +80,13 @@ public class UserController {
 
         }, new VelocityTemplateEngine());
 
-        get("/users/:id/items", (req, res) -> {
+        get("/users/:x/:id/items", (req, res) -> {
 
             Map<String, Object> model = new HashMap();
 
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
             int userId = Integer.parseInt(req.params(":id"));
             User user = DBHelper.find(userId, User.class);
             List<Item> adverts = DBUser.getItemsForUser(user);
@@ -90,10 +99,12 @@ public class UserController {
 
         }, new VelocityTemplateEngine());
 
-        get("/users/:id/artists", (req, res) -> {
+        get("/users/:x/:id/artists", (req, res) -> {
 
             Map<String, Object> model = new HashMap();
-
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
             int userId = Integer.parseInt(req.params(":id"));
             User user = DBHelper.find(userId, User.class);
             List<Artist> adverts = DBUser.getArtistsForUser(user);
@@ -107,7 +118,8 @@ public class UserController {
         }, new VelocityTemplateEngine());
 
         // edit
-        get("/users/:id/edit", (req, res) -> {
+        get("/users/:x/:id/edit", (req, res) -> {
+
             int userId = Integer.parseInt(req.params(":id"));
 
             User user = DBHelper.find(userId, User.class);
@@ -116,13 +128,16 @@ public class UserController {
             model.put("template", "templates/users/edit.vtl");
 
             model.put("user", user);
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             return new ModelAndView(model, "templates/layout.vtl");
 
         },new VelocityTemplateEngine());
 
         //update
-        post("/users/:id", (req, res) -> {
+        post("/users/:x/:id", (req, res) -> {
             int userId = Integer.parseInt(req.params(":id"));
             User user = DBHelper.find(userId, User.class);
 
@@ -130,20 +145,22 @@ public class UserController {
             user.setImage(req.queryParams("image"));
 
             DBHelper.save(user);
-            res.redirect("/users");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+
+            res.redirect("/users/"+id);
             return null;
         }, new VelocityTemplateEngine());
 
         //delete
-        post ("/users/:id/delete", (req, res) -> {
+        post ("/users/:x/:id/delete", (req, res) -> {
 
             int userId = Integer.parseInt(req.params(":id"));
-
             User user = DBHelper.find(userId, User.class);
-
             DBHelper.delete(user);
+            String id = req.params(":x");
 
-            res.redirect("/users");
+            res.redirect("/users/"+ id );
             return null;
         }, new VelocityTemplateEngine());
 
