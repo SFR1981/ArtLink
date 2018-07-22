@@ -1,6 +1,6 @@
 <h1>Edit Artist</h1>
 
-<form action="/artists/$artist.getId()" method="post">
+<form action="/artists//$thisUser.getId()/$artist.getId()" method="post">
 
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" required value="$artist.getTitle()">
@@ -8,8 +8,8 @@
     <label for="description">Description:</label>
     <input type="text" id="description" name="description" required value="$artist.getDescription()">
 
-    <label for="user">Hi $user.getUsername()</label>
-    <input id="user" type="hidden" name="user" required value="$user.getId()" readonly="readonly">
+    <label for="user">Hi $thisUser.getUsername()</label>
+    <input id="user" type="hidden" name="user" required value="$thisUser.getId()" readonly="readonly">
 
     <label for="image">Add image url:</label>
     <input type="text" id="image" name="image"  #if ($artist.getImage()) value = $artist.getImage()

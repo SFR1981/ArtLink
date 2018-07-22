@@ -24,8 +24,8 @@
             <td>$item.getPrice()</td>
         </tr>
     </table>
-    <a href="/items/$item.getId/edit">Edit</a>
-    <td><form action="/items/$item.getId()/delete" method="POST">
+    <a href="/items/$thisUser.getId()/$item.getId()/edit">Edit</a>
+    <td><form action="/items/$thisUser.getId()/$item.getId()/delete" method="POST">
         <input type="submit" value="Delete This Listing"/>
     </form></td>
 

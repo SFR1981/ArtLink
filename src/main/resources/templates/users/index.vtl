@@ -1,7 +1,7 @@
 <p class="pageHeader">All User</p>
 
 <div>
-    <a href="/users/new" class="button center">New User</a>
+    <a href="/users/$thisUser.getId()/new" class="button center">New User</a>
 </div>
 
 <div class="container">
@@ -15,7 +15,7 @@
         <tr>
 
             <td><a href="/users/$thisUser.getId()/$user.getId()">$user.getUsername()</a></td>
-            <td><a href="/users/thisUser.getId()/$user.getId()">
+            <td><a href="/users/$thisUser.getId()/$user.getId()">
                 #if ($user.getImage())
                 <img src="$user.getImage()" alt="image for $user.getUsername()">
                 #else

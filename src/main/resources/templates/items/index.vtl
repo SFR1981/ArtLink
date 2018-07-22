@@ -1,13 +1,14 @@
 
 <p class = "pageHeader"> All items </p>
 
-<a href="/items/new">Post new Item for sale</a>
+<a href="/items/$thisUser.getId()/new">Post new Item for sale</a>
 
 
 <ul class="view_ads_by">
+    <li><a href="/items/$thisUser.getId()">ALL</a></li>
 #foreach ($category in $categories)
     <li>
-<a href="/items/$category.ordinal()">$category</a>
+<a href="/items/$thisUser.getId()/$category">$category</a>
     </li>
 #end
 </ul>
@@ -27,25 +28,25 @@
         </tr>
         #foreach($item in $items)
         <tr>
-            <td> <a href="/items/$item.getId()">
+            <td> <a href="/items/$thisUser.getId()/$item.getId()">
                 #if ($item.getImage()) <img src="$item.getImage()" alt="">
                 #else <p> no image </p>
                 #end
 
             </a></td>
-            <td> <a href="/items/$item.getId()">$item.getTitle()</a></td>
-            <td> <a href="/items/$item.getId()">$item.getCategory().getValue()</a></td>
-            <td> <a href="/items/$item.getId()">$item.getPrice()</a></td>
+            <td> <a href="/items/$thisUser.getId()/$item.getId()">$item.getTitle()</a></td>
+            <td> <a href="/items/$thisUser.getId()/$item.getId()">$item.getCategory().getValue()</a></td>
+            <td> <a href="/items/$thisUser.getId()/$item.getId()">$item.getPrice()</a></td>
 
 
-            <td><form method="post" action="/items/$item.getId()/delete">
+            <td><form method="post" action="/items/$thisUser.getId()/$item.getId()/delete">
                 <input type="submit" value="Delete">
 
 
             </form></td>
             <td>
                 <form action="edit" method="get">
-                    <a href="/items/$item.getId()/edit" class="button">Update</a>
+                    <a href="/items/$thisUser.getId()/$item.getId()/edit" class="button">Update</a>
                 </form>
             </td>
 

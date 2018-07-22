@@ -8,6 +8,7 @@ import models.User;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -28,9 +29,12 @@ public class ItemController {
         User terry = new User("terry");
         DBHelper.save(terry);
         // index
-        get("/items", (req, res) -> {
+        get("/items/:x", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Item> items = DBHelper.getAll(Item.class);
             model.put("items", items);
@@ -40,9 +44,12 @@ public class ItemController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/items/0", (req, res) -> {
+        get("/items/:x/PAINTING", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Item> items = DBItem.getItemsForCategory(Category.PAINTING);
             model.put("items", items);
@@ -52,9 +59,12 @@ public class ItemController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/items/1", (req, res) -> {
+        get("/items/:x/PHOTOGRAPHY", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Item> items = DBItem.getItemsForCategory(Category.PHOTOGRAPHY);
             model.put("items", items);
@@ -65,11 +75,14 @@ public class ItemController {
         }, new VelocityTemplateEngine());
 
 
-        get("/items/2", (req, res) -> {
+        get("/items/:x/JEWELLERY", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
-            List<Item> items = DBItem.getItemsForCategory(Category.JEWELlERY);
+            List<Item> items = DBItem.getItemsForCategory(Category.JEWELLERY);
             model.put("items", items);
             List<Category> categories = Arrays.asList(Category.values());
             model.put("categories", categories);
@@ -77,9 +90,12 @@ public class ItemController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/items/3", (req, res) -> {
+        get("/items/:x/CLOTHES", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Item> items = DBItem.getItemsForCategory(Category.CLOTHES);
             model.put("items", items);
@@ -89,9 +105,12 @@ public class ItemController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/items/4", (req, res) -> {
+        get("/items/:x/VINTAGE", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Item> items = DBItem.getItemsForCategory(Category.VINTAGE);
             model.put("items", items);
@@ -101,9 +120,12 @@ public class ItemController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/items/5", (req, res) -> {
+        get("/items/:x/CRAFT", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Item> items = DBItem.getItemsForCategory(Category.CRAFT);
             model.put("items", items);
@@ -113,9 +135,12 @@ public class ItemController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/items/6", (req, res) -> {
+        get("/items/:x/MISCELLANEOUS", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/items/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Item> items = DBItem.getItemsForCategory(Category.MISCELLANEOUS);
             model.put("items", items);
@@ -135,17 +160,19 @@ public class ItemController {
 
 
         // new
-        get("/items/new", (req, res) -> {
+        get("/items/:x/new", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
             List<Category> categories = Arrays.asList(Category.values());
-            model.put("user", terry);
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
             model.put("categories", categories);
             model.put("template", "templates/items/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
         // create
-        post("/items", (req, res) -> {
+        post("/items/:x", (req, res) -> {
 
             String title = req.queryParams("title");
 
@@ -170,7 +197,7 @@ public class ItemController {
             DBHelper.save(item);
 
 
-            res.redirect("/items");
+            res.redirect("/items/"+userId);
             return null;
         }, new VelocityTemplateEngine());
 
@@ -178,9 +205,12 @@ public class ItemController {
 
 
         // show
-        get("/items/:id", (req, res) -> {
+        get("/items/:x/:id", (req, res) -> {
 
             Map<String, Object> model = new HashMap();
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             int itemId = Integer.parseInt(req.params(":id"));
             Item item = DBHelper.find(itemId, Item.class);
@@ -191,17 +221,18 @@ public class ItemController {
         }, new VelocityTemplateEngine());
 
         // edit
-        get("/items/:id/edit", (req, res) -> {
-
-            int itemId = Integer.parseInt(req.params(":id"));
+        get("/items/:x/:id/edit", (req, res) -> {
 
             Map<String, Object> model = new HashMap();
-            int id = Integer.parseInt((req.params(":id")));
-            Item item = DBHelper.find(id, Item.class);
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
+            int itemId = Integer.parseInt((req.params(":id")));
+            Item item = DBHelper.find(itemId, Item.class);
 
             List<Category> categories = Arrays.asList(Category.values());
             model.put("categories", categories);
-            model.put("user", terry);
+
 
             model.put("template", "templates/items/edit.vtl");
 
@@ -212,7 +243,7 @@ public class ItemController {
         },new VelocityTemplateEngine());
 
         //update
-        post("/items/:id", (req, res) -> {
+        post("/items/:x/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
             Item item = DBHelper.find(id, Item.class);
 
@@ -233,20 +264,21 @@ public class ItemController {
 
 
             DBHelper.save(item);
-            res.redirect("/items");
+            res.redirect("/items/"+userId);
             return null;
         }, new VelocityTemplateEngine());
 
         //delete
-        post ("/items/:id/delete", (req, res) -> {
+        post ("/items/:x/:id/delete", (req, res) -> {
 
             int itemId = Integer.parseInt(req.params(":id"));
 
             Item item = DBHelper.find(itemId, Item.class);
+            int id = Integer.parseInt(req.params(":x"));
 
             DBHelper.delete(item);
 
-            res.redirect("/items");
+            res.redirect("/items/"+id);
             return null;
         }, new VelocityTemplateEngine());
 

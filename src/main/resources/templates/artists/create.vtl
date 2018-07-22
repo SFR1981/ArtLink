@@ -1,6 +1,6 @@
 <h1>New Artist</h1>
 
-<form action="/artists" method="post">
+<form action="/artists/$thisUser.getId()" method="post">
 
 
 
@@ -13,8 +13,8 @@
     <label for="description">Description:</label>
     <input type="text" id="description" name="description" required>
 
-    <label for="user">Hi $user.getUsername()</label>
-    <input id="user" type="hidden" name="user" required value="$user.getId()" readonly="readonly">
+    <label for="user">Hi $thisUser.getUsername()</label>
+    <input id="user" type="hidden" name="user" required value="$thisUser.getId()" readonly="readonly">
 
     <label for="image">Image URL:</label>
     <input type="text" id="image" name="image" >

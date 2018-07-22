@@ -48,15 +48,17 @@ public class UserController {
         }, new VelocityTemplateEngine());
 
         // create
-        post("/users/:x", (req, res) -> {
+        post("/users", (req, res) -> {
 
             String username = req.queryParams("username");
             String image = req.queryParams("image");
             User user = new User(username);
             user.setImage(image);
             DBHelper.save(user);
+            int userId = user.getId();
 
-            res.redirect("/users");
+
+            res.redirect("/"+userId);
             return null;
         }, new VelocityTemplateEngine());
 

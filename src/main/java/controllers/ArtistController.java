@@ -30,8 +30,11 @@ public class ArtistController {
         User terry = new User("terry");
         DBHelper.save(terry);
         // index
-        get("/artists", (req, res) -> {
+        get("/artists/:x", (req, res) -> {
             Map<String, Object> model = new HashMap();
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
             model.put("template", "templates/artists/index.vtl");
 
             List<Artist> artists = DBHelper.getAll(Artist.class);
@@ -42,9 +45,12 @@ public class ArtistController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/artists/0", (req, res) -> {
+        get("/artists/:x/PAINTER", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/artists/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Artist> artists = DBArtist.getArtistsFor(Skill.PAINTER);
             model.put("artists", artists);
@@ -54,9 +60,12 @@ public class ArtistController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/artists/1", (req, res) -> {
+        get("/artists/:x/PHOTOGRAPHER", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/artists/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Artist> artists = DBArtist.getArtistsFor(Skill.PHOTOGRAPHER);
             model.put("artists", artists);
@@ -66,9 +75,12 @@ public class ArtistController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/artists/2", (req, res) -> {
+        get("/artists/:x/JEWELER", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/artists/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Artist> artists = DBArtist.getArtistsFor(Skill.JEWELER);
             model.put("artists", artists);
@@ -78,9 +90,12 @@ public class ArtistController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/artists/3", (req, res) -> {
+        get("/artists/:x/ACTOR", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/artists/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Artist> artists = DBArtist.getArtistsFor(Skill.ACTOR);
             model.put("artists", artists);
@@ -90,9 +105,12 @@ public class ArtistController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/artists/4", (req, res) -> {
+        get("/artists/:x/TAILOR", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/artists/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Artist> artists = DBArtist.getArtistsFor(Skill.TAILOR);
             model.put("artists", artists);
@@ -102,9 +120,12 @@ public class ArtistController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/artists/5", (req, res) -> {
+        get("/artists/:x/DIRECTOR", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/artists/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Artist> artists = DBArtist.getArtistsFor(Skill.DIRECTOR);
             model.put("artists", artists);
@@ -114,9 +135,12 @@ public class ArtistController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/artists/6", (req, res) -> {
+        get("/artists/:x/MISCELLANEOUS", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/artists/index.vtl");
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
 
             List<Artist> artists = DBArtist.getArtistsFor(Skill.MISCELLANEOUS);
             model.put("artists", artists);
@@ -127,19 +151,24 @@ public class ArtistController {
         }, new VelocityTemplateEngine());
 
         // new
-        get("/artists/new", (req, res) -> {
+        get("/artists/:x/new", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
             List<Skill> skills = Arrays.asList(Skill.values());
-            model.put("user", terry);
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
             model.put("skills", skills);
             model.put("template", "templates/artists/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
         // create
-        post("/artists", (req, res) -> {
+        post("/artists/:x", (req, res) -> {
 
             String title = req.queryParams("title");
+            int id = Integer.parseInt(req.params(":x"));
+
+
 
             String description = req.queryParams("description");
 
@@ -167,17 +196,20 @@ public class ArtistController {
             DBHelper.save(artist);
 
 
-            res.redirect("/artists");
+            res.redirect("/artists/"+id);
             return null;
         }, new VelocityTemplateEngine());
 
         // show
-        get("/artists/:id", (req, res) -> {
+        get("/artists/:x/:id", (req, res) -> {
 
             Map<String, Object> model = new HashMap();
 
             int artistId = Integer.parseInt(req.params(":id"));
             Artist artist = DBHelper.find(artistId, Artist.class);
+            int id = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(id, User.class);
+            model.put("thisUser", thisUser);
             model.put("template", "templates/artists/show.vtl");
             model.put("artist", artist);
             return new ModelAndView(model, "templates/layout.vtl");
@@ -185,17 +217,20 @@ public class ArtistController {
         }, new VelocityTemplateEngine());
 
         // edit
-        get("/artists/:id/edit", (req, res) -> {
+        get("/artists/:x/:id/edit", (req, res) -> {
 
             int itemId = Integer.parseInt(req.params(":id"));
 
             Map<String, Object> model = new HashMap();
+            int thisId = Integer.parseInt(req.params(":x"));
+            User thisUser = DBHelper.find(thisId, User.class);
+            model.put("thisUser", thisUser);
             int id = Integer.parseInt((req.params(":id")));
             Artist artist = DBHelper.find(id, Artist.class);
 
             List<Skill> skills = Arrays.asList(Skill.values());
             model.put("skills", skills);
-            model.put("user", terry);
+
 
             model.put("template", "templates/artists/edit.vtl");
 
@@ -206,7 +241,7 @@ public class ArtistController {
         },new VelocityTemplateEngine());
 
         //update
-        post("/artists/:id", (req, res) -> {
+        post("/artists/:x/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
             Artist artist = DBHelper.find(id, Artist.class);
 
@@ -229,20 +264,21 @@ public class ArtistController {
 
 
             DBHelper.save(artist);
-            res.redirect("/artists");
+            res.redirect("/artists/"+userId);
             return null;
         }, new VelocityTemplateEngine());
 
         //delete
-        post ("/artists/:id/delete", (req, res) -> {
+        post ("/artists/:x/:id/delete", (req, res) -> {
 
+            int id = Integer.parseInt(req.params(":x"));
             int artistId = Integer.parseInt(req.params(":id"));
 
             Artist artist = DBHelper.find(artistId, Artist.class);
 
             DBHelper.delete(artist);
 
-            res.redirect("/artists");
+            res.redirect("/artists/"+id);
             return null;
         }, new VelocityTemplateEngine());
 

@@ -1,10 +1,10 @@
 <h1>Edit Item</h1>
 
-<form action="/items/$item.getId()" method="post">
+<form action="/items/$thisUser.getId()/$item.getId()" method="post">
 
 
-    <label for="user">Hi $user.getUsername()</label>
-    <input id="user" type="hidden" name="user" required value="$user.getId()" readonly="readonly">
+    <label for="user">Hi $thisUser.getUsername()</label>
+    <input id="user" type="hidden" name="user" required value="$thisUser.getId()" readonly="readonly">
 
 
     <label for="title">Title:</label>

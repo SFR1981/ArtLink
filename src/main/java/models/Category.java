@@ -7,7 +7,7 @@ public enum Category {
 
     PAINTING("prints & paintings"),
     PHOTOGRAPHY("photography"),
-    JEWELlERY("jewellery"),
+    JEWELLERY("jewellery"),
     CLOTHES("clothes"),
     VINTAGE("vintage"),
     CRAFT("craft & supplies"),

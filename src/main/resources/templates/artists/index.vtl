@@ -1,12 +1,13 @@
 <p class = "pageHeader"> All artists </p>
 
-<a href="/artists/new">Add new artist</a>
+<a href="/artists/$thisUser.getId()/new">Add new artist</a>
 
 
 <ul class="view_ads_by">
+    <li><a href="/artists/$thisUser.getId()">ALL</a></li>
     #foreach ($skill in $skills)
     <li>
-        <a href="/artists/$skill.ordinal()">$skill</a>
+        <a href="/artists//$thisUser.getId()/$skill">$skill</a>
     </li>
     #end
 </ul>
@@ -23,8 +24,8 @@
         </tr>
         #foreach($artist in $artists)
         <tr>
-            <td> <a href="/artists/$artist.getId()">$artist.getTitle()</a></td>
-            <td> <a href="/artists/$artist.getId()">
+            <td> <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getTitle()</a></td>
+            <td> <a href="/artists/$thisUser.getId()/$artist.getId()">
                 #if ($artist.getImage()) <img src="$artist.getImage()" alt="">
                 #else <p> no image </p>
                 #end
@@ -32,19 +33,19 @@
             </a></td>
 
 
-            <td> <a href="/artists/$artist.getId()">$artist.getName()</a></td>
-            <td> <a href="/artists/$artist.getId()">$artist.getSkill().getValue()</a></td>
-            <td> <a href="/artists/$artist.getId()">$artist.getLocation()</a></td>
+            <td> <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getName()</a></td>
+            <td> <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getSkill().getValue()</a></td>
+            <td> <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getLocation()</a></td>
 
 
-            <td><form method="post" action="/artists/$artist.getId()/delete">
+            <td><form method="post" action="/artists/$thisUser.getId()/$artist.getId()/delete">
                 <input type="submit" value="Delete">
 
 
             </form></td>
             <td>
                 <form action="edit" method="get">
-                    <a href="/artists/$artist.getId()/edit" class="button">Update</a>
+                    <a href="/artists/$thisUser.getId()/$artist.getId()/edit" class="button">Update</a>
                 </form>
             </td>
 

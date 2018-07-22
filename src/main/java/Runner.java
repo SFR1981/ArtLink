@@ -64,7 +64,7 @@ public class Runner {
 
 
 
-        List<Category> categoryList = Arrays.asList(Category.CLOTHES, Category.CRAFT, Category.JEWELlERY, Category.MISCELLANEOUS, Category.PAINTING, Category.VINTAGE, Category.PHOTOGRAPHY);
+        List<Category> categoryList = Arrays.asList(Category.CLOTHES, Category.CRAFT, Category.JEWELLERY, Category.MISCELLANEOUS, Category.PAINTING, Category.VINTAGE, Category.PHOTOGRAPHY);
 
 
         for (Category category : categoryList){
@@ -87,7 +87,7 @@ public class Runner {
         int d = item2.getCategory().ordinal();
 
 
-        List<Item> foundClothes = DBItem.getItemsForCategory(Category.JEWELlERY);
+        List<Item> foundClothes = DBItem.getItemsForCategory(Category.JEWELLERY);
 
         List<Artist> foundPainter = DBArtist.getArtistsFor(Skill.PAINTER);
 
