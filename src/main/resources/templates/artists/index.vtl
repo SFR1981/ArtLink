@@ -20,49 +20,45 @@
 
 
 
-<div>
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Skill</th>
-            <th>Location</th>
 
-        </tr>
+<section class = "adverts">
+    <section class = "inner">
+
         #foreach($artist in $artists)
-        <tr>
-            <td> <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getTitle()</a></td>
-            <td> <a href="/artists/$thisUser.getId()/$artist.getId()">
-                #if ($artist.getImage()) <img class="image_add" src="$artist.getImage()" alt="">
+
+        <div>
+
+
+             <a href="/artists/$thisUser.getId()/$artist.getId()">
+                #if ($artist.getImage()) <img src="$artist.getImage()" alt="">
                 #else <p> no image </p>
                 #end
 
-            </a></td>
+            </a>
 
-
-            <td> <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getName()</a></td>
-            <td> <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getSkill().getValue()</a></td>
-            <td> <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getLocation()</a></td>
+             <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getTitle()</a>
+             <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getName()</a>
+             <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getSkill().getValue()</a>
+             <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getLocation()</a>
 
 
 
             #if ($thisUser.getId() == $artist.getUser().getId())
 
-            <td><form method="post" action="/artists/$thisUser.getId()/$artist.getId()/delete">
+            <form method="post" action="/artists/$thisUser.getId()/$artist.getId()/delete">
                 <input type="submit" value="Delete">
 
 
-            </form></td>
-            <td>
+            </form>
+
                 <form action="edit" method="get">
                     <a href="/artists/$thisUser.getId()/$artist.getId()/edit" class="button">Update</a>
                 </form>
-            </td>
+
 
             #end
+        </div>
 
-        </tr>
         #end
-    </table>
-</div>
+    </section>
+</section>
