@@ -1,29 +1,24 @@
-<h2>For sale</h2>
+
 
 <div class="container">
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>User</th>
-            <th>Category</th>
-            <th>Price</th>
-        </tr>
-        <tr>
-            <td>$item.getTitle()</td>
-            <td>$item.getDescription()</td>
-            <td>
+
+    <h1> $item.getTitle() </h1>
+    <h2>$item.getPrice() <button>BUY for $item.getPrice()</button> </h2>
+        <div> Posted by : $item.getUser().getUsername()</div>
+
+           <div>
                 #if ($item.getImage()) <img src="$item.getImage()" alt="image of $item.getTitle()">
                 #else <p> no image </p>
-                #end
+                #end</div>
+    <br>
+            <h2>$item.getDescription()</h2>
+    <br>
 
-            </td>
-            <td>$item.getUser().getUsername()</td>
-            <td>$item.getCategory().getValue()</td>
-            <td>$item.getPrice()</td>
-        </tr>
-    </table>
+
+
+
+
+
 
     #if ($thisUser.getId() == $item.getUser().getId())
 
@@ -35,16 +30,19 @@
 
 </div>
 
-
+<div>
 #foreach ($comment in $comments)
-$comment.getText() posted by $comment.getUser().getUsername() <br>
+    <textarea cols="50" rows="3">
+$comment.getText() </textarea> posted by $comment.getUser().getUsername() <br>
 <br>
 #end
 
 
 
-<td><form action="/items/$thisUser.getId()/$item.getId()/comment" method="POST">
+<form action="/items/$thisUser.getId()/$item.getId()/comment" method="POST" id="comment">
     <label for="comment">Leave a comment</label>
-    <input type="text" id="comment" name="comment" >
+    <textarea placeholder="what do you think" name="comment" cols="30" rows="5" form="comment" required></textarea>
+
     <input type="submit" value="submit comment"/>
-</form></td>
+</form>
+</div>
