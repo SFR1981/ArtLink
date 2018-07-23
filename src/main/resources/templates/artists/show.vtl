@@ -36,3 +36,15 @@
     #end
 
 </div>
+
+#foreach ($comment in $comments)
+$comment.getText() posted by $comment.getUser().getUsername() <br>
+<br>
+#end
+
+
+<td><form action="/artists/$thisUser.getId()/$artist.getId()/comment" method="POST">
+    <label for="comment">Leave a comment</label>
+    <input type="text" id="comment" name="comment" >
+    <input type="submit" value="submit comment"/>
+</form></td>

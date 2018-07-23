@@ -3,18 +3,38 @@ package models;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class  ArtistTest {
 
-    Artist artist;
-    User user;
-    @Before
-    public void before()  {
-        user = new User ("Dave");
-        artist = new Artist("Amazing paint master","If you need a cool design in your weird coffee shop, this is your guy",user, "Mike", Skill.PAINTER,"Edinburgh", "me@email.com");
 
+    User user;
+    ArrayList<Advert> adverts;
+    ArrayList<Comment> comments;
+    Item item;
+    Artist artist;
+    String text;
+    Comment comment;
+
+    @Before
+    public void before() {
+        user = new User("Dave");
+        item = new Item("Amazing Photography", "Y", user, Category.CLOTHES, "1234");
+        artist = new Artist("Amazing paint master", "If you need a cool design in your weird coffee shop, this is your guy", user, "Mike", Skill.PAINTER, "Edinburgh", "x");
+        adverts = new ArrayList<Advert>();
+        comments = new ArrayList<Comment>();
+        artist.setComments(comments);
+        text = new String("this is a test comment and it is well good.");
+
+        comment = new Comment(user, artist, text);
     }
+
+
+
+
+
 
     @Test
     public void getName() {
@@ -104,6 +124,20 @@ public class  ArtistTest {
     public void canSetContact(){
         artist.setContact("x");
         assertEquals("x", artist.getContact());
+    }
+
+    @Test
+    public void canGetComments(){
+        assertEquals(0, artist.getComments().size());
+
+
+    }
+
+    @Test
+    public void canSetComments(){
+        artist.addCommentToList(comment);
+        assertEquals(1, artist.getComments().size());
+
     }
 
 

@@ -30,6 +30,22 @@ public class Runner {
         adverts.add(item);
         user.setAdverts(adverts);
         DBHelper.save(user);
+        String text;
+        text = new String("test comment");
+        Comment comment;
+        comment = new Comment(user, artist, text);
+        DBHelper.save(comment);
+        ArrayList<Comment> comments;
+        comments = new ArrayList<Comment>();
+        user.setComments(comments);
+        user.addCommentToList(comment);
+        artist.setComments(comments);
+        artist.addCommentToList(comment);
+
+        DBHelper.save(user);
+        DBHelper.save(artist);
+
+
 
 
 

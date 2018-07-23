@@ -11,6 +11,7 @@ public class User {
     private String username;
     private List<Advert> adverts;
     private String image;
+    private List<Comment> comments;
 
     public User(){
 
@@ -58,5 +59,18 @@ public class User {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public void addCommentToList(Comment comment){
+        this.comments.add(comment);
     }
 }
