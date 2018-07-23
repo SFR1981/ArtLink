@@ -3,6 +3,7 @@ package controllers;
 import db.DBHelper;
 import db.DBItem;
 import models.Category;
+import models.Comment;
 import models.Item;
 import models.User;
 import spark.ModelAndView;
@@ -289,6 +290,25 @@ public class ItemController {
             DBHelper.delete(item);
 
             res.redirect("/items/"+id);
+            return null;
+        }, new VelocityTemplateEngine());
+
+
+
+        post ("/items/:x/:id/comment", (req, res) -> {
+
+            int itemId = Integer.parseInt(req.params(":id"));
+
+            Item item = DBHelper.find(itemId, Item.class);
+            int id = Integer.parseInt(req.params(":x"));
+            User user = DBHelper.find(id, User.class);
+            String text = req.queryParams("comment");
+            Comment comment = new Comment(user, item, text);
+
+
+
+
+            res.redirect("/items/"+id+"/"+itemId);
             return null;
         }, new VelocityTemplateEngine());
 
