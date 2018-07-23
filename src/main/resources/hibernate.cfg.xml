@@ -18,6 +18,7 @@
         <mapping class= "models.User"/>
         <mapping class= "models.Item"/>
         <mapping class= "models.Artist"/>
+        <mapping class= "models.Comment"/>
 
 
     </session-factory>
