@@ -15,13 +15,18 @@
     <br>
 
             <div>Location: $artist.getLocation()</div>
+    <br>
             <div>Contact artist: $artist.getContact()</div>
+    <br>
 
-    <td><form action="/artists/$thisUser.getId()/$artist.getId()/comment" method="POST">
+    <td><form action="/artists/$thisUser.getId()/$artist.getId()/comment" method="POST" id="comment">
         <label for="comment">Leave a comment</label>
-        <input type="text" id="comment" name="comment" >
+
+        <textarea placeholder="What do you think?" name="comment" cols="30" rows="5" form="comment" required></textarea>
         <input type="submit" value="submit comment"/>
+
     </form></td>
+    <br>
 
 
 
@@ -38,7 +43,8 @@
 </div>
 <div>
 #foreach ($comment in $comments)
-$comment.getText() posted by $comment.getUser().getUsername() <br>
+    <textarea cols="50" rows="3">
+$comment.getText()</textarea> posted by $comment.getUser().getUsername() <br>
 <br>
 #end
 </div>
