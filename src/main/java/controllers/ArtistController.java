@@ -1,6 +1,7 @@
 package controllers;
 
 import db.DBArtist;
+import db.DBComment;
 import db.DBHelper;
 import models.*;
 import spark.ModelAndView;
@@ -221,6 +222,8 @@ public class ArtistController {
             Artist artist = DBHelper.find(artistId, Artist.class);
             int id = Integer.parseInt(req.params(":x"));
             User thisUser = DBHelper.find(id, User.class);
+            List<Comment> comments = artist.getComments();
+            model.put("comments", comments);
             model.put("thisUser", thisUser);
             model.put("template", "templates/artists/show.vtl");
             model.put("artist", artist);
@@ -291,6 +294,22 @@ public class ArtistController {
             DBHelper.delete(artist);
 
             res.redirect("/artists/"+id);
+            return null;
+        }, new VelocityTemplateEngine());
+
+
+        post ("/artists/:x/:id/comment", (req, res) -> {
+
+            int artistId = Integer.parseInt(req.params(":id"));
+
+            Artist artist = DBHelper.find(artistId, Artist.class);
+            int id = Integer.parseInt(req.params(":x"));
+            User user = DBHelper.find(id, User.class);
+            String text = req.queryParams("comment");
+            Comment comment = new Comment(user, artist, text);
+            DBComment.addComment(comment, user, artist);
+
+            res.redirect("/artists/"+id+"/"+artistId);
             return null;
         }, new VelocityTemplateEngine());
 

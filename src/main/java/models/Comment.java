@@ -11,7 +11,7 @@ public class Comment {
     private  User user;
     private Advert advert;
     private String text;
-    private List<Comment> comments;
+
 
     public Comment(){
 

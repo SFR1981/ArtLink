@@ -75,7 +75,7 @@ public abstract class Advert {
         this.user = user;
     }
 
-    @OneToMany(mappedBy = "advert", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "advert", fetch = FetchType.EAGER)
     public List<Comment> getComments() {
         return comments;
     }

@@ -61,7 +61,7 @@ public class User {
         this.image = image;
     }
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     public List<Comment> getComments() {
         return comments;
     }

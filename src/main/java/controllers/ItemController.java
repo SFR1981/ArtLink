@@ -1,5 +1,6 @@
 package controllers;
 
+import db.DBComment;
 import db.DBHelper;
 import db.DBItem;
 import models.Category;
@@ -27,8 +28,8 @@ public class ItemController {
 
     private void setupEndpoints() {
 
-        User terry = new User("terry");
-        DBHelper.save(terry);
+//        User terry = new User("terry");
+  //      DBHelper.save(terry);
         // index
 
         get("/items/$thisUser.getId()", (req,res)-> {
@@ -222,11 +223,12 @@ public class ItemController {
             int id = Integer.parseInt(req.params(":x"));
             User thisUser = DBHelper.find(id, User.class);
             model.put("thisUser", thisUser);
-
             int itemId = Integer.parseInt(req.params(":id"));
             Item item = DBHelper.find(itemId, Item.class);
             model.put("template", "templates/items/show.vtl");
             model.put("item", item);
+            List<Comment> comments = item.getComments();
+            model.put("comments", comments);
             return new ModelAndView(model, "templates/layout.vtl");
 
         }, new VelocityTemplateEngine());
@@ -304,9 +306,7 @@ public class ItemController {
             User user = DBHelper.find(id, User.class);
             String text = req.queryParams("comment");
             Comment comment = new Comment(user, item, text);
-
-
-
+            DBComment.addComment(comment, user, item);
 
             res.redirect("/items/"+id+"/"+itemId);
             return null;
