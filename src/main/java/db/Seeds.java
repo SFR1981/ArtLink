@@ -11,6 +11,7 @@ public class Seeds {
         DBHelper.deleteAll(Artist.class);
         DBHelper.deleteAll(Item.class);
         DBHelper.deleteAll(User.class);
+
         User user = new User("Dave");
         DBHelper.save(user);
         User user2 = new User("ArtBot");
