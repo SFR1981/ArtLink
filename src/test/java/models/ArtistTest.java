@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class ArtistTest {
+public class  ArtistTest {
 
     Artist artist;
     User user;
