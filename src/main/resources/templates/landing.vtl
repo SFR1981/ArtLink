@@ -4,17 +4,21 @@
 
 <h2> Please log in </h2>   ...Or <a href="/users/0/new"><h4>sign up</h4></a>
 
-who are you?
 
-<ul>
-#foreach ($user in $users)
 
-    <li>
-<a href="/$user.getId()">$user.getUsername()</a>
-    </li>
 
+<div class="dropdown">
+    <button class="dropbtn">Who are you?</button>
+    <div class="dropdown-content">
+        #foreach ($user in $users)
+        <a href="/$user.getId()">$user.getUsername()</a>
 #end
-</ul>
+
+    </div>
+</div>
+
+
+
 
 
 
