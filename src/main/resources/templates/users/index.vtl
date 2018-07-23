@@ -17,7 +17,7 @@
             <td><a href="/users/$thisUser.getId()/$user.getId()">$user.getUsername()</a></td>
             <td><a href="/users/$thisUser.getId()/$user.getId()">
                 #if ($user.getImage())
-                <img src="$user.getImage()" alt="image for $user.getUsername()">
+                <img class="image_user"  src="$user.getImage()" alt="image for $user.getUsername()">
                 #else
                  no image
                 #end

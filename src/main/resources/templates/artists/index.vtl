@@ -34,7 +34,7 @@
         <tr>
             <td> <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getTitle()</a></td>
             <td> <a href="/artists/$thisUser.getId()/$artist.getId()">
-                #if ($artist.getImage()) <img src="$artist.getImage()" alt="">
+                #if ($artist.getImage()) <img class="image_add" src="$artist.getImage()" alt="">
                 #else <p> no image </p>
                 #end
 

@@ -1,20 +1,23 @@
 
-welcome
+<p>Welcome $thisUser.getUsername()</p>
 
 
 
 
 <head></head>
-<body>
-<h1 class ="logo"><img src="/images/logo.png" width="25%"></h1>
+<body class="container">
+<div >
+<h1 class ="image_user"><img src="$thisUser.getImage()"></h1>
+</div>
 
 
 
-<ul>
-    <li><a href="/adverts/$thisUser.getId()">All Adverts</a></li>
-    <li><a href="/items/$thisUser.getId()">For sale</a></li>
-    <li><a href="/artists/$thisUser.getId()">Creative connections</a></li>
-    <li><a href="/users/$thisUser.getId()">Users</a></li>
-</ul>
+
+
+
+<button><a href="/items/$thisUser.getId()" class="main_button">For sale</a></button>
+
+<button><a href="/artists/$thisUser.getId()" class="main_button">Creative connections</a></button>
+
 
 </body>

@@ -29,7 +29,7 @@
         #foreach($item in $items)
         <tr>
             <td> <a href="/items/$thisUser.getId()/$item.getId()">
-                #if ($item.getImage()) <img src="$item.getImage()" alt="">
+                #if ($item.getImage()) <img class="image_item" src="$item.getImage()" alt="">
                 #else <p> no image </p>
                 #end
 
