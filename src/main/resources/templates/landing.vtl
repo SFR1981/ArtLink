@@ -5,14 +5,16 @@
 <h2> Please log in </h2>
 
 who are you?
-#foreach ($user in $users)
+
 <ul>
+#foreach ($user in $users)
+
     <li>
 <a href="/$user.getId()">$user.getUsername()</a>
     </li>
-</ul>
-#end
 
+#end
+</ul>
 
 <a href="/users/0/new"><h4>sign up</h4></a>
 
