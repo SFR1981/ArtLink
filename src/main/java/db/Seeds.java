@@ -132,7 +132,10 @@ public class Seeds {
         DBHelper.save(comment3);
         Comment comment4 = new Comment(user3, artist4,"wow, cool, I love dresses");
         DBHelper.save(comment4);
-
+        Comment comment5 = new Comment(user4, artist4,"that is MOST fortunate");
+        DBHelper.save(comment5);
+        Comment comment6 = new Comment(user5, item2,"it's not round enough for my liking, sorry just airing my opinion in case someone wanted to know what my opinion on this ring was");
+        DBHelper.save(comment6);
         ArrayList adverts = new ArrayList<Advert>();
 
         adverts.add(artist1);

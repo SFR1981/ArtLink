@@ -22,7 +22,7 @@ public class DBItem {
         try {
             Criteria cr = session.createCriteria(Item.class);
             cr.add(Restrictions.eq("category", category));
-            items = cr.list();
+            items = cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {

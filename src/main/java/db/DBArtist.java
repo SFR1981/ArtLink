@@ -22,7 +22,7 @@ public class DBArtist {
         try {
             Criteria cr = session.createCriteria(Artist.class);
             cr.add(Restrictions.eq("skill", skill));
-            artists = cr.list();
+            artists = cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {
