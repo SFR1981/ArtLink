@@ -13,13 +13,18 @@ public class Seeds {
         DBHelper.deleteAll(User.class);
 
         User user = new User("Dave");
+        user.setImage("http://localhost:4567/images/profile1.jpeg");
         DBHelper.save(user);
         User user2 = new User("ArtBot");
-        user2.setImage("http://localhost:4567/images/artbot.jpeg");
+        user2.setImage("http://localhost:4567/images/profile2.jpeg");
         DBHelper.save(user2);
         User user3 = new User("Bert the Bear");
         user3.setImage("http://localhost:4567/images/bearfishriver.jpg");
         DBHelper.save(user3);
+        User user4 = new User("Melinda");
+        user4.setImage("http://localhost:4567/images/profile4.jpeg");
+        DBHelper.save(user4);
+
 
 
 
