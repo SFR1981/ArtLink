@@ -44,8 +44,7 @@
 
 <div>
 #foreach ($comment in $comments)
-    <p><img class="little_photo" src="$comment.getUser().getImage()" alt="user image">  <textarea cols="50" rows="3">
-        $comment.getText()</textarea></p><br>
+    <p><img class="little_photo" src="$comment.getUser().getImage()" alt="user image">  <textarea cols="50" rows="3">$comment.getText()</textarea></p><br>
 <br>
 #end
 </div>
