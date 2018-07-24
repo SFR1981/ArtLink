@@ -28,8 +28,7 @@ public class ItemController {
 
     private void setupEndpoints() {
 
-//        User terry = new User("terry");
-  //      DBHelper.save(terry);
+//
         // index
 
         get("/items/$thisUser.getId()", (req,res)-> {
