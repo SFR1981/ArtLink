@@ -9,14 +9,18 @@
   flex-flow: row wrap;
   display: -webkit-box;
   display: flex;
-  header img: height: 100%;
+
 }
 .adverts div {
-  -webkit-box-flex: auto;
-  -ms-flex: auto;
-  flex: auto;
-  width: 200px;
+
+  flex-grow: 8;
+  max-width: 17vw;
+  height: 17vw;
   margin: .5vw;
+}
+
+.adverts div a{
+text-decoration: none;
 }
 .inner div img {
   width: 100%;
