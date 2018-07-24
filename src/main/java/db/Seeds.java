@@ -102,6 +102,7 @@ public class Seeds {
 
 
 
+
         Artist artist1 = new Artist("Painter", "Very talented young painter from Glasgow", user2, "Mike", Skill.PAINTER, "Glasgow", "email@address");
         artist1.setImage("http://localhost:4567/images/profile1.jpeg");
         DBHelper.save(artist1);
@@ -123,6 +124,14 @@ public class Seeds {
         artist5.setImage("http://localhost:4567/images/profile5.jpeg");
         DBHelper.save(artist5);
 
+        Comment comment1 = new Comment(user, item6,"wow, that is so realistic I can hardly believe my eyes");
+        DBHelper.save(comment1);
+        Comment comment2 = new Comment(user2, item2,"Wow it is SOOOO round");
+        DBHelper.save(comment2);
+        Comment comment3 = new Comment(user5, item15,"do you think it could fly into space?");
+        DBHelper.save(comment3);
+        Comment comment4 = new Comment(user3, artist4,"wow, cool, I love dresses");
+        DBHelper.save(comment4);
 
         ArrayList adverts = new ArrayList<Advert>();
 

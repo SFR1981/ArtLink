@@ -7,10 +7,7 @@ import models.*;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static spark.Spark.after;
 import static spark.Spark.get;
@@ -58,6 +55,7 @@ public class ArtistController {
             model.put("template", "templates/artists/index.vtl");
 
             List<Artist> artists = DBHelper.getAll(Artist.class);
+            Set<Artist> artistSet = new HashSet<Artist>(artists);
             model.put("artists", artists);
             List<Skill> skills = Arrays.asList(Skill.values());
             model.put("skills", skills);
@@ -73,6 +71,7 @@ public class ArtistController {
             model.put("thisUser", thisUser);
 
             List<Artist> artists = DBArtist.getArtistsFor(Skill.PAINTER);
+            Set<Artist> artistSet = new HashSet<Artist>(artists);
             model.put("artists", artists);
             List<Skill> skills = Arrays.asList(Skill.values());
             model.put("skills", skills);

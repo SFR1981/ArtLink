@@ -9,9 +9,7 @@ import models.User;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
@@ -28,7 +26,8 @@ public class UserController {
         get("/users/$thisUser.getId()", (req,res)-> {
             Map<String,Object> model = new HashMap<>();
             List<User> users = DBHelper.getAll(User.class);
-            model.put("users", users);
+            Set<User> userSet = new HashSet<User>(users);
+            model.put("users", userSet);
             model.put("template", "templates/landing.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
