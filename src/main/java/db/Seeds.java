@@ -55,7 +55,7 @@ public class Seeds {
         DBHelper.save(item7);
 
         Artist artist1 = new Artist("Painter", "Very talented young painter from Glasgow", user2, "Mike", Skill.PAINTER, "Glasgow", "email@address");
-        artist1.setImage("http://localhost:4567/images/logo.jpg");
+        artist1.setImage("http://localhost:4567/images/logo.png");
         DBHelper.save(artist1);
 
         Artist artist2 = new Artist("Jewellery maker", "Experienced jewellery maker, looking for collaboration.", user, "Hannah", Skill.JEWELER, "Edinburgh", "email@address");
