@@ -28,8 +28,7 @@ public class ArtistController {
 
     private void setupEndpoints() {
 
-        User terry = new User("terry");
-        DBHelper.save(terry);
+
         // index
 
         get("/artists/$thisUser.getId()", (req,res)-> {
