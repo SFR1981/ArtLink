@@ -59,12 +59,17 @@ public class Seeds {
         item7.setImage("http://localhost:4567/images/salmon.png");
         DBHelper.save(item7);
 
+
+
+
+
+
         Artist artist1 = new Artist("Painter", "Very talented young painter from Glasgow", user2, "Mike", Skill.PAINTER, "Glasgow", "email@address");
         artist1.setImage("http://localhost:4567/images/profile1.jpeg");
         DBHelper.save(artist1);
 
         Artist artist2 = new Artist("Jewellery maker", "Experienced jewellery maker, looking for collaboration.", user, "Hannah", Skill.JEWELER, "Edinburgh", "email@address");
-        artist2.setImage("http://localhost:4567/images/profile2.jpeg");
+        artist2.setImage("http://localhost:4567/images/profile2.png");
         DBHelper.save(artist2);
 
 
