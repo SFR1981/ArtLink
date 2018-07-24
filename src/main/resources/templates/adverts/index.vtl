@@ -2,39 +2,84 @@
 
 
 
+<section class = "adverts">
+    <section class = "inner">
 
-<div>
-    <table>
-        <tr>
-            <th>image</th>
-            <th>Title</th>
-            <th>User</th>
 
-        </tr>
-        #foreach($advert in $adverts)
-        <tr>
-            <td> <a href="/adverts/$advert.getId()">
-                #if ($advert.getImage()) <img src="$advert.getImage()" alt="">
+
+
+
+        #foreach($item in $items)
+
+        <div>
+            <a href="/items/$thisUser.getId()/$item.getId()">
+                #if ($item.getImage()) <img src="$item.getImage()" alt="">
                 #else <p> no image </p>
                 #end
 
-            </a></td>
-            <td> <a href="/adverts/$advert.getId()">$advert.getTitle()</a></td>
-            <td> <a href="/adverts/$advert.getId()">$advert.getUser().getUsername()</a></td>
+            </a>
+            <a href="/items/$thisUser.getId()/$item.getId()">$item.getTitle()</a>
+            <a href="/items/$thisUser.getId()/$item.getId()">$item.getPrice()</a>
 
-            <td><form method="post" action="/adverts/$advert.getId()/delete">
+            #if ($thisUser.getId() == $item.getUser().getId())
+
+
+            <form method="post" action="/items/$thisUser.getId()/$item.getId()/delete">
                 <input type="submit" value="Delete">
 
 
-            </form></td>
+            </form>
 
-            <td>
-                <form action="edit" method="get">
-                    <a href="/departments/$department.getId()/edit" class="button">Update</a>
-                </form>
-            </td>
+            <form action="edit" method="get">
+                <a href="/items/$thisUser.getId()/$item.getId()/edit" class="button">Update</a>
+            </form>
 
-        </tr>
+            #end
+        </div>
+
+
         #end
-    </table>
-</div>
+
+        #foreach($artist in $artists)
+
+        <div>
+
+
+            <a href="/artists/$thisUser.getId()/$artist.getId()">
+                #if ($artist.getImage()) <img src="$artist.getImage()" alt="">
+                #else <p> no image </p>
+                #end
+
+            </a>
+
+            <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getTitle()</a>
+            <a href="/artists/$thisUser.getId()/$artist.getId()">$artist.getName()</a>
+
+
+
+
+
+            #if ($thisUser.getId() == $artist.getUser().getId())
+
+            <form method="post" action="/artists/$thisUser.getId()/$artist.getId()/delete">
+                <input type="submit" value="Delete">
+
+
+            </form>
+
+            <form action="edit" method="get">
+                <a href="/artists/$thisUser.getId()/$artist.getId()/edit" class="button">Update</a>
+            </form>
+
+
+            #end
+        </div>
+
+        #end
+
+    </section>
+
+
+</section>
+
+

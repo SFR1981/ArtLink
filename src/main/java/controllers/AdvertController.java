@@ -44,7 +44,11 @@ public class AdvertController {
                 List<Advert> adverts = DBHelper.getAll(Advert.class);
                 List<Item> items = DBHelper.getAll(Item.class);
                 List<Artist> artists = DBHelper.getAll(Artist.class);
-                model.put("adverts", adverts);
+                int id = Integer.parseInt(req.params(":x"));
+                User thisUser = DBHelper.find(id, User.class);
+                model.put("thisUser", thisUser);
+                model.put("items", items);
+                model.put("artists", artists);
                 model.put("template", "templates/adverts/index.vtl");
 
                 return new ModelAndView(model, "templates/layout.vtl");
