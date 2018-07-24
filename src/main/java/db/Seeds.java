@@ -55,20 +55,24 @@ public class Seeds {
         DBHelper.save(item7);
 
         Artist artist1 = new Artist("Painter", "Very talented young painter from Glasgow", user2, "Mike", Skill.PAINTER, "Glasgow", "email@address");
-        artist1.setImage("http://localhost:4567/images/logo.jpg");
+        artist1.setImage("http://localhost:4567/images/profile1.jpeg");
         DBHelper.save(artist1);
 
         Artist artist2 = new Artist("Jewellery maker", "Experienced jewellery maker, looking for collaboration.", user, "Hannah", Skill.JEWELER, "Edinburgh", "email@address");
+        artist2.setImage("http://localhost:4567/images/profile2.jpeg");
         DBHelper.save(artist2);
 
+
         Artist artist3 = new Artist("Homemade crafts", "Talented mother of three years old.", user, "Paula", Skill.MISCELLANEOUS, "Edinburgh", "address@email");
+        artist3.setImage("http://localhost:4567/images/profile3.jpeg");
         DBHelper.save(artist3);
 
         Artist artist4 = new Artist("Dressmaker", "Can make any dress you want ", user, "Hamish", Skill.TAILOR, "Edinburgh", "email@address");
+        artist4.setImage("http://localhost:4567/images/profile4.jpeg");
         DBHelper.save(artist4);
 
         Artist artist5 = new Artist("performance artist", "I take a lot of inspiration from the wild, and am often complemented on my convincing portrayals of large bears", user3, "Bert", Skill.ACTOR, "Edinburgh", "send me a letter or something");
-        artist5.setImage("http://localhost:4567/images/bear.jpg");
+        artist5.setImage("http://localhost:4567/images/profile5.jpeg");
         DBHelper.save(artist5);
 
 
