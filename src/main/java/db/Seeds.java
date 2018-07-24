@@ -78,7 +78,7 @@ public class Seeds {
         item10.setImage("http://localhost:4567/images/art3.jpeg");
         DBHelper.save(item10);
 
-        Item item11 = new Item("Paper clothse", "Beautiful paper clothes!", user6, Category.CLOTHES, "5.00");
+        Item item11 = new Item("Paper clothes", "Beautiful paper clothes!", user6, Category.CLOTHES, "5.00");
         item11.setImage("http://localhost:4567/images/cloths.jpeg");
         DBHelper.save(item11);
 
