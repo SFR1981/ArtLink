@@ -32,6 +32,15 @@ public class UserController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+        get("/users/$thisUser.getId()/:x", (req,res)-> {
+            Map<String,Object> model = new HashMap<>();
+            List<User> users = DBHelper.getAll(User.class);
+            Set<User> userSet = new HashSet<User>(users);
+            model.put("users", userSet);
+            model.put("template", "templates/landing.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
         // index
         get("/users/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();

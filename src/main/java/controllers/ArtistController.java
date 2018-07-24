@@ -36,7 +36,7 @@ public class ArtistController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/artist/$thisUser.getId()/new", (req,res) -> {
+        get("/artists/$thisUser.getId()/new", (req,res) -> {
             Map<String,Object> model = new HashMap<>();
             List<User> users = DBHelper.getAll(User.class);
             model.put("users", users);
