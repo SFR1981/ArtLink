@@ -95,6 +95,10 @@ public class Seeds {
         DBHelper.save(item14);
 
 
+        Item item15 = new Item("weird thing I found in a bin", "pretty fly, am I right?", user3, Category.MISCELLANEOUS, "£78.99");
+        item15.setImage("http://localhost:4567/images/cool.jpg");
+        DBHelper.save(item15);
+
 
 
 
