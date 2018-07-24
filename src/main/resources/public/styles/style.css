@@ -143,6 +143,11 @@ font-size:
 
 }
 
+.little_photo {
+    height: auto;
+    max-width: 5%;
+}
+
 
 
 
