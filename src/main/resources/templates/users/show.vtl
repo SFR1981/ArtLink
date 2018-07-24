@@ -34,25 +34,30 @@
         </li></ul>
     <h2>Adverts</h2>
 
+
+
+    <section class = "adverts">
+        <section class = "inner">
     #foreach ($advert in $adverts)
-    <table>
-    <tr>
-        <td> <a href="/$url/$thisUser.getId()/$advert.getId()">
+
+    <div>
+         <a href="/$url/$thisUser.getId()/$advert.getId()">
             #if ($advert.getImage()) <img src="$advert.getImage()" alt="">
             #else <p> no image </p>
             #end
 
-        </a></td>
-        <td> <a href="/$url/$thisUser.getId()/$advert.getId()">$advert.getTitle()</a></td>
-        <td> <a href="/$url/$thisUser.getId()/$advert.getId()">$advert.getUser().getUsername()</a></td>
+        </a>
+         <a href="/$url/$thisUser.getId()/$advert.getId()">$advert.getTitle()</a>
+         <a href="/$url/$thisUser.getId()/$advert.getId()">$advert.getUser().getUsername()</a>
 
-    </tr>
-    </table>
+
+    </div>
     #end
 
 
 
-
+</section>
+    </section>
 
 
 </div>
