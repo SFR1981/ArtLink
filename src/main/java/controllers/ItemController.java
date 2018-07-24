@@ -39,6 +39,15 @@ public class ItemController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+        get("/items/$thisUser.getId()/new", (req,res) -> {
+            Map<String,Object> model = new HashMap<>();
+            List<User> users = DBHelper.getAll(User.class);
+            model.put("users", users);
+            model.put("template", "templates/landing.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+
 
         get("/items/:x", (req, res) -> {
             Map<String, Object> model = new HashMap();

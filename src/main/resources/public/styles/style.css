@@ -3,6 +3,11 @@ body {
     font-family: "Trebuchet MS", Helvetica, sans-serif
 }
 
+a {
+text-decoration: none;
+color: #566270;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -17,7 +22,7 @@ li {
 
 li a {
     display: block;
-    color: white;
+    color: #566270;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -25,7 +30,7 @@ li a {
 }
 
 li a:hover:not(.active) {
-    background-color: #111;
+    background-color: #FFFFF3;
 }
 
 table, th, td {
@@ -130,6 +135,12 @@ background-color: #f49c20;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+
+.new {
+font-size:
+
 }
 
 
