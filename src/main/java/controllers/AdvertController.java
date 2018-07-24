@@ -3,6 +3,8 @@ package controllers;
 import db.DBHelper;
 import db.Seeds;
 import models.Advert;
+import models.Artist;
+import models.Item;
 import models.User;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -40,6 +42,8 @@ public class AdvertController {
 
 
                 List<Advert> adverts = DBHelper.getAll(Advert.class);
+                List<Item> items = DBHelper.getAll(Item.class);
+                List<Artist> artists = DBHelper.getAll(Artist.class);
                 model.put("adverts", adverts);
                 model.put("template", "templates/adverts/index.vtl");
 
