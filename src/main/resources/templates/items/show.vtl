@@ -2,18 +2,25 @@
 
 <div class="container">
 
-    <h1> $item.getTitle() </h1>
-    <h2>$item.getPrice() <button>BUY for $item.getPrice()</button> </h2>
-        <div> Posted by : $item.getUser().getUsername()</div>
+    <h1> $item.getTitle()   Posted by : $item.getUser().getUsername() </h1>
 
-           <div>
+
+    <section class = "advertsx">
+        <section class = "inner_show">
+<div class="price">
+    <h2>$item.getPrice() <button>BUY for $item.getPrice()</button> </h2></div>
+
+
+
+           <div class="show_image">
                 #if ($item.getImage()) <img class="image_add" src="$item.getImage()" alt="image of $item.getTitle()">
                 #else <p> no image </p>
                 #end</div>
-    <br>
-            <h2>$item.getDescription()</h2>
-    <br>
-
+    <div>
+            <h5>$item.getDescription()</h5>
+    </div>
+        </section>
+    </section>
 
 
 

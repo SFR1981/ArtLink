@@ -2,9 +2,10 @@
 .inner {
   padding: .5vw;
   font-size: 10;
+  font-family:
   display: -ms-flexbox;
   -ms-flex-wrap: wrap;
-  -ms-flex-direction: column;
+  -ms-flex-direction: row;
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
   display: -webkit-box;
@@ -13,9 +14,9 @@
 }
 .adverts div {
 
-  flex-grow: 8;
-  max-width: 17vw;
-  height: 17vw;
+  flex-grow: 1;
+  max-width: 25vw;
+
   margin: .5vw;
 }
 
@@ -26,8 +27,14 @@ text-decoration: none;
   width: 100%;
   height: 80%;
 }
+
+
+
+
+
 @media screen and (max-width: 400px) {
   adverts div { margin: 0; }
   adverts { padding: 0; }
 
 }
+
