@@ -106,7 +106,7 @@ public class Seeds {
         artist1.setImage("http://localhost:4567/images/profile1.jpeg");
         DBHelper.save(artist1);
 
-        Artist artist2 = new Artist("Jewellery maker", "Experienced jewellery maker, looking for collaboration.", user5, "Hannah", Skill.JEWELER, "Edinburgh", "email@address");
+        Artist artist2 = new Artist("Jewellery maker", "Experienced jewellery maker, looking for collaboration.", user5, "Terry", Skill.JEWELER, "Edinburgh", "email@address");
         artist2.setImage("http://localhost:4567/images/profile2.png");
         DBHelper.save(artist2);
 

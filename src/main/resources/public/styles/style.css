@@ -116,6 +116,14 @@ background-color: white;
     height: auto;
     max-width: 20%;
     object-fit: cover;
+
+
+}
+
+.image_main img{
+    height: auto;
+    max-width: 15%;
+    object-fit: cover;
 }
 
 .image_item {

@@ -37,13 +37,6 @@
 
 </div>
 
-<div>
-#foreach ($comment in $comments)
-    <textarea cols="50" rows="3">
-$comment.getText() </textarea> posted by $comment.getUser().getUsername() <br>
-<br>
-#end
-
 
 
 <form action="/items/$thisUser.getId()/$item.getId()/comment" method="POST" id="comment">
@@ -52,4 +45,14 @@ $comment.getText() </textarea> posted by $comment.getUser().getUsername() <br>
 
     <input type="submit" value="submit comment"/>
 </form>
+
+<div>
+#foreach ($comment in $comments)
+    <p><img class="little_photo" src="$comment.getUser().getImage()" alt="user image">  <textarea cols="50" rows="3">
+        $comment.getText()</textarea></p>
+
+#end
+
+
+
 </div>
