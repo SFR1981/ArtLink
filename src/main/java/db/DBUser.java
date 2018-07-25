@@ -26,7 +26,7 @@ public class DBUser {
         try{
             Criteria cr = session.createCriteria(Advert.class);
             cr.add(Restrictions.eq( "user", user));
-            ads = cr.list();
+            ads = cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
         }catch (HibernateException e){
             e.printStackTrace();
         }finally {
@@ -42,7 +42,7 @@ public class DBUser {
         try{
             Criteria cr = session.createCriteria(Item.class);
             cr.add(Restrictions.eq( "user", user));
-            items = cr.list();
+            items = cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
         }catch (HibernateException e){
             e.printStackTrace();
         }finally {
@@ -58,7 +58,7 @@ public class DBUser {
         try{
             Criteria cr = session.createCriteria(Artist.class);
             cr.add(Restrictions.eq( "user", user));
-            artists = cr.list();
+            artists = cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
         }catch (HibernateException e){
             e.printStackTrace();
         }finally {
